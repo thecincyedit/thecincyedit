@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contact — The Cincy Edit</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Work+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#F8F7F4; --surface:#FFFFFF; --surface-2:#F0EFEA;
+    --ink:#14151A; --ink-soft:#5B5D66; --ink-faint:#8B8D96; --line:#E4E3DE;
+    --shadow: 0 1px 2px rgba(20,21,26,0.05), 0 10px 26px -14px rgba(20,21,26,0.16);
+    --good:#0ca30c;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#121212; --surface:#1B1B1B; --surface-2:#242424;
+      --ink:#F5F4F1; --ink-soft:#A8A6A0; --ink-faint:#77756F; --line:#2D2D2C;
+      --shadow: 0 1px 2px rgba(0,0,0,0.4), 0 10px 26px -14px rgba(0,0,0,0.6);
+      --good:#3ec93e;
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#121212; --surface:#1B1B1B; --surface-2:#242424;
+    --ink:#F5F4F1; --ink-soft:#A8A6A0; --ink-faint:#77756F; --line:#2D2D2C;
+    --shadow: 0 1px 2px rgba(0,0,0,0.4), 0 10px 26px -14px rgba(0,0,0,0.6);
+    --good:#3ec93e;
+  }
+  *{ box-sizing:border-box; }
+  body{
+    margin:0; background:var(--bg); color:var(--ink);
+    font-family:'Work Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    padding-inline:16px;
+  }
+  .wrap{ max-width:640px; margin:0 auto; padding-block:28px 56px; display:flex; flex-direction:column; gap:28px; }
+
+  header{ display:flex; flex-direction:column; gap:4px; padding-bottom:4px; }
+  .handle{
+    font-family:'IBM Plex Mono', ui-monospace, monospace; font-size:13px; font-weight:500;
+    color:var(--ink-soft); margin:0; letter-spacing:0.02em;
+    text-decoration:none; display:inline-block;
+  }
+  .handle:hover{ color:var(--ink); text-decoration:underline; }
+  footer a{ color:inherit; text-decoration:none; }
+  footer a:hover{ text-decoration:underline; }
+  .logo-lockup{ display:flex; flex-direction:column; align-items:flex-start; margin:6px 0 0; font-weight:400; width:max-content; max-width:100%; }
+  .logo-eyebrow{
+    display:flex; align-items:center; gap:9px; margin-bottom:8px;
+    font-family:'Work Sans',sans-serif; font-size:11px; font-weight:700; letter-spacing:0.4em; color:var(--ink);
+  }
+  .logo-bar{ width:22px; height:5px; background:var(--ink); flex:0 0 auto; }
+  .logo-cincy{
+    font-family:'Bebas Neue', sans-serif; font-weight:400; text-transform:uppercase;
+    font-size:clamp(46px,15vw,88px); line-height:0.82; letter-spacing:0.02em;
+  }
+  .logo-edit{
+    font-family:'Bebas Neue', sans-serif; font-weight:400; text-transform:uppercase;
+    font-size:clamp(46px,15vw,88px); line-height:0.82; letter-spacing:0.05em;
+    background:var(--ink); color:var(--bg);
+    padding:6px 14px 2px; margin-top:8px; align-self:stretch; text-align:center;
+  }
+  .logo-tagline{ margin:12px 0 0; font-size:11px; font-weight:600; letter-spacing:0.22em; text-transform:uppercase; color:var(--ink-soft); }
+
+  .sitenav{ display:flex; gap:8px; flex-wrap:wrap; margin-top:6px; }
+  .sitenav a{
+    font-family:'Work Sans',sans-serif; font-size:12.5px; font-weight:700; letter-spacing:0.06em;
+    text-transform:uppercase; color:var(--ink-soft); text-decoration:none;
+    padding:8px 14px; border:1px solid var(--line); border-radius:999px; background:var(--surface);
+  }
+  .sitenav a:hover{ color:var(--ink); border-color:var(--ink); }
+  .sitenav a[aria-current="page"]{ color:var(--bg); background:var(--ink); border-color:var(--ink); }
+
+  h1.page-title{
+    font-family:'Bebas Neue',sans-serif; font-weight:400; text-transform:uppercase;
+    letter-spacing:0.015em; font-size:clamp(30px,7vw,40px); line-height:0.92; margin:0;
+  }
+  .lede{ font-size:16px; line-height:1.6; color:var(--ink); max-width:56ch; margin:0; }
+
+  section{ display:flex; flex-direction:column; gap:12px; }
+  h2{
+    font-family:'Bebas Neue',sans-serif; font-weight:400; text-transform:uppercase;
+    letter-spacing:0.02em; font-size:24px; margin:0;
+  }
+  p{ font-size:15px; line-height:1.65; color:var(--ink-soft); margin:0; max-width:58ch; }
+
+  .formcard{
+    background:var(--surface); border:1px solid var(--line); border-radius:16px;
+    padding:24px; box-shadow:var(--shadow); display:flex; flex-direction:column; gap:14px;
+  }
+  .formcard form{ display:flex; flex-direction:column; gap:12px; }
+  .field{ display:flex; flex-direction:column; gap:6px; }
+  .field label{
+    font-family:'Work Sans',sans-serif; font-size:11.5px; font-weight:700; letter-spacing:0.06em;
+    text-transform:uppercase; color:var(--ink-faint);
+  }
+  .field input, .field select, .field textarea{
+    font:inherit; font-size:15px; padding:11px 13px; border-radius:9px;
+    border:1px solid var(--line); background:var(--surface-2); color:var(--ink);
+  }
+  .field textarea{ resize:vertical; min-height:96px; }
+  .field input::placeholder, .field textarea::placeholder{ color:var(--ink-faint); }
+  .row{ display:flex; gap:10px; flex-wrap:wrap; }
+  .row .field{ flex:1 1 200px; }
+  .formcard button{
+    font-family:'Work Sans',sans-serif; font-size:13.5px; font-weight:700; letter-spacing:0.05em;
+    text-transform:uppercase; padding:12px 18px; border-radius:9px; border:none; cursor:pointer;
+    background:var(--ink); color:var(--bg); align-self:flex-start;
+  }
+  .formcard button:hover{ opacity:0.88; }
+  .fineprint{ font-size:11.5px; color:var(--ink-faint); margin:0; max-width:none; }
+  .success{ display:none; font-size:15px; color:var(--good); font-weight:600; }
+  .formcard.is-submitted form{ display:none; }
+  .formcard.is-submitted .success{ display:block; }
+  [hidden]{ display:none !important; }
+
+  .direct{ display:flex; flex-direction:column; gap:4px; }
+  .direct a{ color:var(--ink); }
+
+  footer{ padding-top:8px; border-top:1px solid var(--line); }
+  footer p{ font-size:13px; color:var(--ink-soft); line-height:1.6; margin:12px 0 0; max-width:none; }
+  footer strong{ color:var(--ink); }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <a class="handle" href="https://instagram.com/thecincyedit" target="_blank" rel="noopener">@TheCincyEdit</a>
+    <div class="logo-lockup">
+      <span class="logo-eyebrow"><span class="logo-bar" aria-hidden="true"></span>THE</span>
+      <span class="logo-cincy">CINCY</span>
+      <span class="logo-edit">EDIT</span>
+    </div>
+    <p class="logo-tagline">Go Somewhere. Do Something.</p>
+    <nav class="sitenav" aria-label="Site">
+      <a href="index.html">Calendar</a>
+      <a href="about.html">About</a>
+      <a href="social-club.html">Social Club</a>
+      <a href="contact.html" aria-current="page">Say Hi</a>
+    </nav>
+  </header>
+
+  <h1 class="page-title">Say Hi</h1>
+  <p class="lede">Got an event that belongs on the calendar, or want to talk partnership? Fill this out and it lands straight in the inbox &mdash; no account, no login.</p>
+
+  <section class="formcard" id="contactBox">
+    <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" id="contactForm">
+      <input type="hidden" name="form-name" value="contact">
+      <p hidden><label>Don't fill this out if you're human: <input name="bot-field"></label></p>
+
+      <div class="field">
+        <label for="reason">What's this about</label>
+        <select id="reason" name="reason" required>
+          <option value="">Choose one</option>
+          <option value="Submit an event">Submit an event</option>
+          <option value="Partner with us">Partner with us</option>
+          <option value="Just saying hi">Just saying hi</option>
+        </select>
+      </div>
+
+      <div class="row">
+        <div class="field">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" placeholder="First and last">
+        </div>
+        <div class="field">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="you@email.com" required>
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="message">Details</label>
+        <textarea id="message" name="message" placeholder="Event name, date, time, and where to find more &mdash; or whatever else you've got." required></textarea>
+      </div>
+
+      <div class="field">
+        <label for="link">Link or flyer (optional)</label>
+        <input type="text" id="link" name="link" placeholder="Instagram post, event page, or a link to an image">
+      </div>
+
+      <button type="submit">Send it</button>
+      <p class="fineprint">Screenshots of flyers work too &mdash; if you've got one and no link, mention that in the details and send it over on Instagram or TikTok instead.</p>
+    </form>
+    <p class="success">Got it &mdash; thanks for sending that over.</p>
+  </section>
+
+  <section class="direct">
+    <h2>Or find us directly</h2>
+    <p>DM <a href="https://instagram.com/thecincyedit" target="_blank" rel="noopener">@TheCincyEdit</a> on Instagram or TikTok, especially if you've got a flyer screenshot to send.</p>
+  </section>
+
+  <footer>
+    <p>Curated by <a href="https://instagram.com/thecincyedit" target="_blank" rel="noopener"><strong>@TheCincyEdit</strong></a>.</p>
+    <p>Events listed here are not affiliated with, run by, or endorsed by The Cincy Edit. This is simply a calendar &mdash; check with the event or venue directly for the latest details.</p>
+  </footer>
+</div>
+
+<script>
+(function(){
+  var box = document.getElementById('contactBox');
+  var form = document.getElementById('contactForm');
+
+  function encode(data){
+    return Object.keys(data).map(function(k){
+      return encodeURIComponent(k) + '=' + encodeURIComponent(data[k]);
+    }).join('&');
+  }
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    var formData = new FormData(form);
+    var payload = {};
+    formData.forEach(function(value, key){ payload[key] = value; });
+
+    fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: encode(payload)
+    }).then(function(){
+      box.classList.add('is-submitted');
+    }).catch(function(){
+      box.classList.add('is-submitted');
+    });
+  });
+})();
+</script>
+</body>
+</html>

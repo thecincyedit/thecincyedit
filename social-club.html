@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Social Club — The Cincy Edit</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Work+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#F8F7F4; --surface:#FFFFFF; --surface-2:#F0EFEA;
+    --ink:#14151A; --ink-soft:#5B5D66; --ink-faint:#8B8D96; --line:#E4E3DE;
+    --shadow: 0 1px 2px rgba(20,21,26,0.05), 0 10px 26px -14px rgba(20,21,26,0.16);
+    --good:#0ca30c;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#121212; --surface:#1B1B1B; --surface-2:#242424;
+      --ink:#F5F4F1; --ink-soft:#A8A6A0; --ink-faint:#77756F; --line:#2D2D2C;
+      --shadow: 0 1px 2px rgba(0,0,0,0.4), 0 10px 26px -14px rgba(0,0,0,0.6);
+      --good:#3ec93e;
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#121212; --surface:#1B1B1B; --surface-2:#242424;
+    --ink:#F5F4F1; --ink-soft:#A8A6A0; --ink-faint:#77756F; --line:#2D2D2C;
+    --shadow: 0 1px 2px rgba(0,0,0,0.4), 0 10px 26px -14px rgba(0,0,0,0.6);
+    --good:#3ec93e;
+  }
+  *{ box-sizing:border-box; }
+  body{
+    margin:0; background:var(--bg); color:var(--ink);
+    font-family:'Work Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    padding-inline:16px;
+  }
+  .wrap{ max-width:640px; margin:0 auto; padding-block:28px 56px; display:flex; flex-direction:column; gap:28px; }
+
+  header{ display:flex; flex-direction:column; gap:4px; padding-bottom:4px; }
+  .handle{
+    font-family:'IBM Plex Mono', ui-monospace, monospace; font-size:13px; font-weight:500;
+    color:var(--ink-soft); margin:0; letter-spacing:0.02em;
+    text-decoration:none; display:inline-block;
+  }
+  .handle:hover{ color:var(--ink); text-decoration:underline; }
+  footer a{ color:inherit; text-decoration:none; }
+  footer a:hover{ text-decoration:underline; }
+  .logo-lockup{ display:flex; flex-direction:column; align-items:flex-start; margin:6px 0 0; font-weight:400; width:max-content; max-width:100%; }
+  .logo-eyebrow{
+    display:flex; align-items:center; gap:9px; margin-bottom:8px;
+    font-family:'Work Sans',sans-serif; font-size:11px; font-weight:700; letter-spacing:0.4em; color:var(--ink);
+  }
+  .logo-bar{ width:22px; height:5px; background:var(--ink); flex:0 0 auto; }
+  .logo-cincy{
+    font-family:'Bebas Neue', sans-serif; font-weight:400; text-transform:uppercase;
+    font-size:clamp(46px,15vw,88px); line-height:0.82; letter-spacing:0.02em;
+  }
+  .logo-edit{
+    font-family:'Bebas Neue', sans-serif; font-weight:400; text-transform:uppercase;
+    font-size:clamp(46px,15vw,88px); line-height:0.82; letter-spacing:0.05em;
+    background:var(--ink); color:var(--bg);
+    padding:6px 14px 2px; margin-top:8px; align-self:stretch; text-align:center;
+  }
+  .logo-tagline{ margin:12px 0 0; font-size:11px; font-weight:600; letter-spacing:0.22em; text-transform:uppercase; color:var(--ink-soft); }
+
+  .sitenav{ display:flex; gap:8px; flex-wrap:wrap; margin-top:6px; }
+  .sitenav a{
+    font-family:'Work Sans',sans-serif; font-size:12.5px; font-weight:700; letter-spacing:0.06em;
+    text-transform:uppercase; color:var(--ink-soft); text-decoration:none;
+    padding:8px 14px; border:1px solid var(--line); border-radius:999px; background:var(--surface);
+  }
+  .sitenav a:hover{ color:var(--ink); border-color:var(--ink); }
+  .sitenav a[aria-current="page"]{ color:var(--bg); background:var(--ink); border-color:var(--ink); }
+
+  h1.page-title{
+    font-family:'Bebas Neue',sans-serif; font-weight:400; text-transform:uppercase;
+    letter-spacing:0.015em; font-size:clamp(30px,7vw,40px); line-height:0.92; margin:0;
+  }
+  .lede{ font-size:16px; line-height:1.6; color:var(--ink); max-width:56ch; margin:0; }
+
+  section{ display:flex; flex-direction:column; gap:12px; }
+  h2{
+    font-family:'Bebas Neue',sans-serif; font-weight:400; text-transform:uppercase;
+    letter-spacing:0.02em; font-size:24px; margin:0;
+  }
+  p{ font-size:15px; line-height:1.65; color:var(--ink-soft); margin:0; max-width:58ch; }
+
+  .cardgrid{ display:flex; flex-direction:column; gap:10px; }
+  .feature{
+    background:var(--surface); border:1px solid var(--line); border-radius:12px;
+    padding:16px 18px; box-shadow:var(--shadow);
+  }
+  .feature .flabel{
+    font-family:'IBM Plex Mono', ui-monospace, monospace; font-size:11.5px; font-weight:500;
+    letter-spacing:0.04em; color:var(--ink-faint); text-transform:uppercase; margin:0 0 4px;
+  }
+  .feature p{ margin:0; max-width:none; }
+
+  .signup{
+    background:var(--ink); color:var(--bg); border-radius:16px; padding:28px 24px;
+    display:flex; flex-direction:column; gap:14px;
+  }
+  .signup h2{ color:var(--bg); }
+  .signup p{ color:var(--bg); opacity:0.75; max-width:none; }
+  .signup form{ display:flex; flex-direction:column; gap:10px; }
+  .signup .row{ display:flex; gap:10px; flex-wrap:wrap; }
+  .signup input[type=text], .signup input[type=email]{
+    flex:1 1 200px; font:inherit; font-size:15px; padding:11px 13px; border-radius:9px;
+    border:1px solid rgba(255,255,255,0.25); background:rgba(255,255,255,0.08); color:var(--bg);
+  }
+  .signup input::placeholder{ color:rgba(255,255,255,0.5); }
+  .signup button{
+    font-family:'Work Sans',sans-serif; font-size:13.5px; font-weight:700; letter-spacing:0.05em;
+    text-transform:uppercase; padding:12px 18px; border-radius:9px; border:none; cursor:pointer;
+    background:var(--bg); color:var(--ink); align-self:flex-start;
+  }
+  .signup button:hover{ opacity:0.88; }
+  .signup .fineprint{ font-size:11.5px; color:rgba(255,255,255,0.55); margin:0; max-width:none; }
+  .signup .success{ display:none; font-size:15px; color:var(--good); font-weight:600; }
+  .signup.is-submitted form{ display:none; }
+  .signup.is-submitted .success{ display:block; }
+  [hidden]{ display:none !important; }
+
+  footer{ padding-top:8px; border-top:1px solid var(--line); }
+  footer p{ font-size:13px; color:var(--ink-soft); line-height:1.6; margin:12px 0 0; max-width:none; }
+  footer strong{ color:var(--ink); }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <a class="handle" href="https://instagram.com/thecincyedit" target="_blank" rel="noopener">@TheCincyEdit</a>
+    <div class="logo-lockup">
+      <span class="logo-eyebrow"><span class="logo-bar" aria-hidden="true"></span>THE</span>
+      <span class="logo-cincy">CINCY</span>
+      <span class="logo-edit">EDIT</span>
+    </div>
+    <p class="logo-tagline">Go Somewhere. Do Something.</p>
+    <nav class="sitenav" aria-label="Site">
+      <a href="index.html">Calendar</a>
+      <a href="about.html">About</a>
+      <a href="social-club.html" aria-current="page">Social Club</a>
+      <a href="contact.html">Say Hi</a>
+    </nav>
+  </header>
+
+  <h1 class="page-title">Social Club</h1>
+  <p class="lede">A monthly newsletter built around what's already on the calendar &mdash; top picks and local finds, straight to your inbox.</p>
+
+  <section>
+    <h2>What you get</h2>
+    <div class="cardgrid">
+      <div class="feature">
+        <p class="flabel">Top Events of the Month</p>
+        <p>5&ndash;7 hand-picked events worth building your month around, pulled from every category.</p>
+      </div>
+      <div class="feature">
+        <p class="flabel">Cincy Finds</p>
+        <p>A local spot or hidden gem worth knowing about, every month.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>On the way</h2>
+    <p>A monthly meet-up and local partner discounts are coming as the Social Club grows.</p>
+  </section>
+
+  <section>
+    <h2>Free to join</h2>
+    <p>No cost to be part of it right now. Just an email, and you're in.</p>
+  </section>
+
+  <section class="signup" id="signupBox">
+    <h2>Join the Social Club</h2>
+    <p>One email a month. Unsubscribe whenever.</p>
+    <form name="social-club-signup" method="POST" data-netlify="true" netlify-honeypot="bot-field" id="signupForm">
+      <input type="hidden" name="form-name" value="social-club-signup">
+      <p hidden><label>Don't fill this out if you're human: <input name="bot-field"></label></p>
+      <div class="row">
+        <input type="text" name="name" placeholder="First name">
+        <input type="email" name="email" placeholder="you@email.com" required>
+      </div>
+      <button type="submit">Join the Social Club</button>
+      <p class="fineprint">Submissions land in the site's Netlify dashboard &mdash; export or connect it to a mailing list tool whenever you're ready to send the first one.</p>
+    </form>
+    <p class="success">You're in &mdash; watch for the first newsletter.</p>
+  </section>
+
+  <footer>
+    <p>Curated by <a href="https://instagram.com/thecincyedit" target="_blank" rel="noopener"><strong>@TheCincyEdit</strong></a>.</p>
+    <p>Events listed here are not affiliated with, run by, or endorsed by The Cincy Edit. This is simply a calendar &mdash; check with the event or venue directly for the latest details.</p>
+  </footer>
+</div>
+
+<script>
+(function(){
+  var box = document.getElementById('signupBox');
+  var form = document.getElementById('signupForm');
+
+  function encode(data){
+    return Object.keys(data).map(function(k){
+      return encodeURIComponent(k) + '=' + encodeURIComponent(data[k]);
+    }).join('&');
+  }
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    var formData = new FormData(form);
+    var payload = {};
+    formData.forEach(function(value, key){ payload[key] = value; });
+
+    fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: encode(payload)
+    }).then(function(){
+      box.classList.add('is-submitted');
+    }).catch(function(){
+      box.classList.add('is-submitted');
+    });
+  });
+})();
+</script>
+</body>
+</html>

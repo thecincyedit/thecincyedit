@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>About — The Cincy Edit</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Work+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#F8F7F4; --surface:#FFFFFF; --surface-2:#F0EFEA;
+    --ink:#14151A; --ink-soft:#5B5D66; --ink-faint:#8B8D96; --line:#E4E3DE;
+    --shadow: 0 1px 2px rgba(20,21,26,0.05), 0 10px 26px -14px rgba(20,21,26,0.16);
+    --cat-arts:#2a78d6; --cat-food:#eb6834; --cat-music:#0f8f68; --cat-family:#b97800;
+    --cat-adult:#c2367a; --cat-free:#008300; --cat-health:#6b4fc4; --cat-sports:#e34948;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#121212; --surface:#1B1B1B; --surface-2:#242424;
+      --ink:#F5F4F1; --ink-soft:#A8A6A0; --ink-faint:#77756F; --line:#2D2D2C;
+      --shadow: 0 1px 2px rgba(0,0,0,0.4), 0 10px 26px -14px rgba(0,0,0,0.6);
+      --cat-arts:#3987e5; --cat-food:#d95926; --cat-music:#1f9e73; --cat-family:#c98500;
+      --cat-adult:#e0609f; --cat-free:#008300; --cat-health:#8574d6; --cat-sports:#e66767;
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#121212; --surface:#1B1B1B; --surface-2:#242424;
+    --ink:#F5F4F1; --ink-soft:#A8A6A0; --ink-faint:#77756F; --line:#2D2D2C;
+    --shadow: 0 1px 2px rgba(0,0,0,0.4), 0 10px 26px -14px rgba(0,0,0,0.6);
+    --cat-arts:#3987e5; --cat-food:#d95926; --cat-music:#1f9e73; --cat-family:#c98500;
+    --cat-adult:#e0609f; --cat-free:#008300; --cat-health:#8574d6; --cat-sports:#e66767;
+  }
+  *{ box-sizing:border-box; }
+  body{
+    margin:0; background:var(--bg); color:var(--ink);
+    font-family:'Work Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    padding-inline:16px;
+  }
+  .wrap{ max-width:640px; margin:0 auto; padding-block:28px 56px; display:flex; flex-direction:column; gap:28px; }
+
+  header{ display:flex; flex-direction:column; gap:4px; padding-bottom:4px; }
+  .handle{
+    font-family:'IBM Plex Mono', ui-monospace, monospace; font-size:13px; font-weight:500;
+    color:var(--ink-soft); margin:0; letter-spacing:0.02em;
+    text-decoration:none; display:inline-block;
+  }
+  .handle:hover{ color:var(--ink); text-decoration:underline; }
+  footer a{ color:inherit; text-decoration:none; }
+  footer a:hover{ text-decoration:underline; }
+  .logo-lockup{ display:flex; flex-direction:column; align-items:flex-start; margin:6px 0 0; font-weight:400; width:max-content; max-width:100%; }
+  .logo-eyebrow{
+    display:flex; align-items:center; gap:9px; margin-bottom:8px;
+    font-family:'Work Sans',sans-serif; font-size:11px; font-weight:700; letter-spacing:0.4em; color:var(--ink);
+  }
+  .logo-bar{ width:22px; height:5px; background:var(--ink); flex:0 0 auto; }
+  .logo-cincy{
+    font-family:'Bebas Neue', sans-serif; font-weight:400; text-transform:uppercase;
+    font-size:clamp(46px,15vw,88px); line-height:0.82; letter-spacing:0.02em;
+  }
+  .logo-edit{
+    font-family:'Bebas Neue', sans-serif; font-weight:400; text-transform:uppercase;
+    font-size:clamp(46px,15vw,88px); line-height:0.82; letter-spacing:0.05em;
+    background:var(--ink); color:var(--bg);
+    padding:6px 14px 2px; margin-top:8px; align-self:stretch; text-align:center;
+  }
+  .logo-tagline{ margin:12px 0 0; font-size:11px; font-weight:600; letter-spacing:0.22em; text-transform:uppercase; color:var(--ink-soft); }
+
+  .sitenav{ display:flex; gap:8px; flex-wrap:wrap; margin-top:6px; }
+  .sitenav a{
+    font-family:'Work Sans',sans-serif; font-size:12.5px; font-weight:700; letter-spacing:0.06em;
+    text-transform:uppercase; color:var(--ink-soft); text-decoration:none;
+    padding:8px 14px; border:1px solid var(--line); border-radius:999px; background:var(--surface);
+  }
+  .sitenav a:hover{ color:var(--ink); border-color:var(--ink); }
+  .sitenav a[aria-current="page"]{ color:var(--bg); background:var(--ink); border-color:var(--ink); }
+
+  h1.page-title{
+    font-family:'Bebas Neue',sans-serif; font-weight:400; text-transform:uppercase;
+    letter-spacing:0.015em; font-size:clamp(30px,7vw,40px); line-height:0.92; margin:0;
+  }
+  .lede{ font-size:16px; line-height:1.6; color:var(--ink); max-width:56ch; margin:0; }
+  .lede strong{ color:var(--ink); }
+
+  section{ display:flex; flex-direction:column; gap:12px; }
+  h2{
+    font-family:'Bebas Neue',sans-serif; font-weight:400; text-transform:uppercase;
+    letter-spacing:0.02em; font-size:24px; margin:0;
+  }
+  p{ font-size:15px; line-height:1.65; color:var(--ink-soft); margin:0; max-width:58ch; }
+
+  .catlist{ display:flex; flex-wrap:wrap; gap:8px; }
+  .catlist span{
+    display:inline-flex; align-items:center; gap:7px;
+    font-size:11.5px; font-weight:700; letter-spacing:0.06em; text-transform:uppercase;
+    color:var(--ink-soft); background:var(--surface-2); border:1px solid var(--line);
+    border-radius:999px; padding:6px 12px 6px 10px;
+  }
+  .catlist .swatch{ width:9px; height:9px; border-radius:50%; flex:0 0 auto; }
+  .catlist .cat-arts .swatch  { background:var(--cat-arts); }
+  .catlist .cat-food .swatch  { background:var(--cat-food); }
+  .catlist .cat-music .swatch { background:var(--cat-music); }
+  .catlist .cat-family .swatch{ background:var(--cat-family); }
+  .catlist .cat-adult .swatch { background:var(--cat-adult); }
+  .catlist .cat-free .swatch  { background:var(--cat-free); }
+  .catlist .cat-health .swatch{ background:var(--cat-health); }
+  .catlist .cat-sports .swatch{ background:var(--cat-sports); }
+
+  .cta{
+    display:flex; flex-direction:column; gap:10px; background:var(--surface);
+    border:1px solid var(--line); border-radius:14px; padding:22px; box-shadow:var(--shadow);
+  }
+  .cta a.btn{
+    align-self:flex-start; font-family:'Work Sans',sans-serif; font-size:13px; font-weight:700;
+    letter-spacing:0.05em; text-transform:uppercase; text-decoration:none;
+    color:var(--bg); background:var(--ink); border-radius:8px; padding:11px 18px;
+  }
+  .cta a.btn:hover{ opacity:0.85; }
+
+  footer{ padding-top:8px; border-top:1px solid var(--line); }
+  footer p{ font-size:13px; color:var(--ink-soft); line-height:1.6; margin:12px 0 0; max-width:none; }
+  footer strong{ color:var(--ink); }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <a class="handle" href="https://instagram.com/thecincyedit" target="_blank" rel="noopener">@TheCincyEdit</a>
+    <div class="logo-lockup">
+      <span class="logo-eyebrow"><span class="logo-bar" aria-hidden="true"></span>THE</span>
+      <span class="logo-cincy">CINCY</span>
+      <span class="logo-edit">EDIT</span>
+    </div>
+    <p class="logo-tagline">Go Somewhere. Do Something.</p>
+    <nav class="sitenav" aria-label="Site">
+      <a href="index.html">Calendar</a>
+      <a href="about.html" aria-current="page">About</a>
+      <a href="social-club.html">Social Club</a>
+      <a href="contact.html">Say Hi</a>
+    </nav>
+  </header>
+
+  <h1 class="page-title">About</h1>
+  <p class="lede">The Cincy Edit is a day-by-day guide to what's actually happening in Cincinnati &mdash; free nights, live music, family stuff, and everything in between, curated so you don't have to dig for it.</p>
+
+  <section>
+    <h2>What we cover</h2>
+    <div class="catlist">
+      <span class="cat-free"><span class="swatch" aria-hidden="true"></span>Free &amp; Budget-Friendly</span>
+      <span class="cat-adult"><span class="swatch" aria-hidden="true"></span>Adult Events (21+)</span>
+      <span class="cat-arts"><span class="swatch" aria-hidden="true"></span>Arts &amp; Culture</span>
+      <span class="cat-family"><span class="swatch" aria-hidden="true"></span>Family Friendly</span>
+      <span class="cat-food"><span class="swatch" aria-hidden="true"></span>Food &amp; Drink</span>
+      <span class="cat-health"><span class="swatch" aria-hidden="true"></span>Health &amp; Fitness</span>
+      <span class="cat-music"><span class="swatch" aria-hidden="true"></span>Music &amp; Nightlife</span>
+      <span class="cat-sports"><span class="swatch" aria-hidden="true"></span>Sports</span>
+    </div>
+  </section>
+
+  <section>
+    <h2>Add it straight to your calendar</h2>
+    <p>Every event on the calendar has a one-tap button to add it to your Google or Apple calendar. No screenshotting a flyer and hoping you remember, no retyping the date and time by hand &mdash; that's not something most local event roundups let you do.</p>
+  </section>
+
+  <section>
+    <h2>How it's kept up to date</h2>
+    <p>Every event on this calendar is added by hand, picked because it's worth knowing about. Got something that belongs here? That's exactly what the contact page is for.</p>
+  </section>
+
+  <div class="cta">
+    <h2 style="font-size:20px">Want in on more than the calendar?</h2>
+    <p>The Social Club is a small newsletter built around the events already on this page &mdash; top picks and local finds, once a month.</p>
+    <a class="btn" href="social-club.html">See the Social Club</a>
+  </div>
+
+  <footer>
+    <p>Curated by <a href="https://instagram.com/thecincyedit" target="_blank" rel="noopener"><strong>@TheCincyEdit</strong></a>.</p>
+    <p>Events listed here are not affiliated with, run by, or endorsed by The Cincy Edit. This is simply a calendar &mdash; check with the event or venue directly for the latest details.</p>
+  </footer>
+</div>
+</body>
+</html>
