@@ -9,6 +9,10 @@
 // variables). Keeping it out of the source code means it's easy to swap
 // later without editing code, and keeps this file identical whether the
 // URL is public or not.
+//
+// UPDATED 2026-09-21: multi-day events (End Date filled in on the Sheet)
+// now carry an "endDate" field through to the page, so the calendar page
+// can show them on every day they run, not just the first day.
 
 const ICS_URL = process.env.CINCY_CALENDAR_ICS_URL || "";
 
@@ -86,6 +90,15 @@ function isDstEasternUTCMinus4(y, m, d) {
 
 function pad(n) {
   return String(n).padStart(2, "0");
+}
+
+// All-day events store DTEND as the day AFTER the event actually ends
+// (that's how the calendar format works). Subtract one day so what we
+// show on the page is the real last day.
+function subtractOneDay(dateStr) {
+  const d = new Date(dateStr + "T00:00:00Z");
+  d.setUTCDate(d.getUTCDate() - 1);
+  return `${d.getUTCFullYear()}-${pad(d.getUTCMonth() + 1)}-${pad(d.getUTCDate())}`;
 }
 
 // Extracts {date:"YYYY-MM-DD", time:"HH:MM"|null, allDay:bool} in
@@ -215,11 +228,20 @@ function parseICS(raw) {
     // doesn't show twice in the notes text on the page.
     const notes = (ev.description || "").replace(/\s*\|\s*Categories:.*$/i, "").trim();
 
+    // Multi-day support: for all-day events, the raw end date is
+    // exclusive (one day past the real last day), so correct for that.
+    // For timed events, the end date is already the real last day.
+    let endDate = end.date;
+    if (start.allDay && endDate && endDate !== start.date) {
+      endDate = subtractOneDay(endDate);
+    }
+
     out.push({
       id: ev.uid || `evt-${idx}`,
       title: ev.summary || "Untitled event",
       categories,
       date: start.date,
+      endDate: endDate && endDate !== start.date ? endDate : undefined,
       allDay: !!start.allDay,
       startTime: start.time || "00:00",
       endTime: end.time || start.time || "23:59",
@@ -272,4 +294,3 @@ exports.handler = async function () {
     };
   }
 };
-
