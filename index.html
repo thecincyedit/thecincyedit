@@ -330,7 +330,8 @@
 
   function occursOn(ev, dateStr){
     if(!ev.repeat || !ev.repeat.freq || ev.repeat.freq === 'NONE'){
-      return dateStr === ev.date;
+          var endD = ev.endDate || ev.date;
+    return dateStr >= ev.date && dateStr <= endD;
     }
     if(dateStr < ev.date) return false;
     if(ev.repeat.until && dateStr > ev.repeat.until) return false;
