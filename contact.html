@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Contact — The Cincy Edit</title>
+<title>Contact | The Cincy Edit</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Work+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
@@ -12,6 +12,7 @@
     --bg:#F8F7F4; --surface:#FFFFFF; --surface-2:#F0EFEA;
     --ink:#14151A; --ink-soft:#5B5D66; --ink-faint:#8B8D96; --line:#E4E3DE;
     --shadow: 0 1px 2px rgba(20,21,26,0.05), 0 10px 26px -14px rgba(20,21,26,0.16);
+    --accent:#FB4F14;
     --good:#0ca30c;
   }
   @media (prefers-color-scheme: dark){
@@ -19,6 +20,7 @@
       --bg:#121212; --surface:#1B1B1B; --surface-2:#242424;
       --ink:#F5F4F1; --ink-soft:#A8A6A0; --ink-faint:#77756F; --line:#2D2D2C;
       --shadow: 0 1px 2px rgba(0,0,0,0.4), 0 10px 26px -14px rgba(0,0,0,0.6);
+      --accent:#FF6B33;
       --good:#3ec93e;
     }
   }
@@ -26,6 +28,7 @@
     --bg:#121212; --surface:#1B1B1B; --surface-2:#242424;
     --ink:#F5F4F1; --ink-soft:#A8A6A0; --ink-faint:#77756F; --line:#2D2D2C;
     --shadow: 0 1px 2px rgba(0,0,0,0.4), 0 10px 26px -14px rgba(0,0,0,0.6);
+    --accent:#FF6B33;
     --good:#3ec93e;
   }
   *{ box-sizing:border-box; }
@@ -50,7 +53,7 @@
     display:flex; align-items:center; gap:9px; margin-bottom:8px;
     font-family:'Work Sans',sans-serif; font-size:11px; font-weight:700; letter-spacing:0.4em; color:var(--ink);
   }
-  .logo-bar{ width:22px; height:5px; background:var(--ink); flex:0 0 auto; }
+  .logo-bar{ width:22px; height:5px; background:var(--accent); flex:0 0 auto; }
   .logo-cincy{
     font-family:'Bebas Neue', sans-serif; font-weight:400; text-transform:uppercase;
     font-size:clamp(46px,15vw,88px); line-height:0.82; letter-spacing:0.02em;
@@ -67,7 +70,7 @@
   .sitenav a{
     font-family:'Work Sans',sans-serif; font-size:12.5px; font-weight:700; letter-spacing:0.06em;
     text-transform:uppercase; color:var(--ink-soft); text-decoration:none;
-    padding:8px 14px; border:1px solid var(--line); border-radius:999px; background:var(--surface);
+    padding:8px 14px; border:1px solid var(--line); border-radius:0; background:var(--surface);
   }
   .sitenav a:hover{ color:var(--ink); border-color:var(--ink); }
   .sitenav a[aria-current="page"]{ color:var(--bg); background:var(--ink); border-color:var(--ink); }
@@ -135,14 +138,14 @@
     <p class="logo-tagline">Go Somewhere. Do Something.</p>
     <nav class="sitenav" aria-label="Site">
       <a href="index.html">Calendar</a>
-      <a href="about.html">About</a>
       <a href="social-club.html">Social Club</a>
       <a href="contact.html" aria-current="page">Say Hi</a>
+      <a href="about.html">About</a>
     </nav>
   </header>
 
   <h1 class="page-title">Say Hi</h1>
-  <p class="lede">Got an event that belongs on the calendar, or want to talk partnership? Fill this out and it lands straight in the inbox &mdash; no account, no login.</p>
+  <p class="lede">Got an event that belongs on the calendar, or want to talk partnership? Fill this out and it lands straight in the inbox. No account, no login.</p>
 
   <section class="formcard" id="contactBox">
     <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" id="contactForm">
@@ -172,7 +175,7 @@
 
       <div class="field">
         <label for="message">Details</label>
-        <textarea id="message" name="message" placeholder="Event name, date, time, and where to find more &mdash; or whatever else you've got." required></textarea>
+        <textarea id="message" name="message" placeholder="Event name, date, time, and where to find more, or whatever else you've got." required></textarea>
       </div>
 
       <div class="field">
@@ -181,9 +184,9 @@
       </div>
 
       <button type="submit">Send it</button>
-      <p class="fineprint">Screenshots of flyers work too &mdash; if you've got one and no link, mention that in the details and send it over on Instagram or TikTok instead.</p>
+      <p class="fineprint">Screenshots of flyers work too. If you've got one and no link, mention that in the details and send it over on Instagram or TikTok instead.</p>
     </form>
-    <p class="success">Got it &mdash; thanks for sending that over.</p>
+    <p class="success">Got it, thanks for sending that over.</p>
   </section>
 
   <section class="direct">
@@ -193,7 +196,7 @@
 
   <footer>
     <p>Curated by <a href="https://instagram.com/thecincyedit" target="_blank" rel="noopener"><strong>@TheCincyEdit</strong></a>.</p>
-    <p>Events listed here are not affiliated with, run by, or endorsed by The Cincy Edit. This is simply a calendar &mdash; check with the event or venue directly for the latest details.</p>
+    <p>Events listed here are not affiliated with, run by, or endorsed by The Cincy Edit. This is simply a calendar. Check with the event or venue directly for the latest details.</p>
   </footer>
 </div>
 
