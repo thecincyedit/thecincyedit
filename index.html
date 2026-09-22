@@ -146,6 +146,8 @@
     border:1px solid var(--line); border-radius:14px; background:var(--surface);
     color:var(--ink); cursor:pointer; font:inherit; position:relative;
   }
+  .daybtn .mon{ font-size:9.5px; font-weight:700; text-transform:uppercase; letter-spacing:0.06em; color:var(--ink-faint); margin-bottom:1px; }
+  .daybtn.is-selected .mon{ color:inherit; opacity:0.75; }
   .daybtn .dow{ font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:0.04em; color:var(--ink-faint); }
   .daybtn.is-selected .dow{ color:inherit; opacity:0.75; }
   .daybtn .num{ font-family:'IBM Plex Mono', ui-monospace, monospace; font-size:17px; font-weight:500; }
@@ -507,6 +509,11 @@
       btn.type = 'button';
       btn.className = 'daybtn';
       btn.dataset.date = dateStr;
+
+      var mon = document.createElement('span');
+      mon.className = 'mon';
+      mon.textContent = new Intl.DateTimeFormat(undefined,{ month:'short' }).format(d);
+      btn.appendChild(mon);
 
       var dow = document.createElement('span');
       dow.className = 'dow';
