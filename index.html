@@ -510,10 +510,12 @@
       btn.className = 'daybtn';
       btn.dataset.date = dateStr;
 
-      var mon = document.createElement('span');
-      mon.className = 'mon';
-      mon.textContent = new Intl.DateTimeFormat(undefined,{ month:'short' }).format(d);
-      btn.appendChild(mon);
+      if(i === 0 || d.getDate() === 1){
+        var mon = document.createElement('span');
+        mon.className = 'mon';
+        mon.textContent = new Intl.DateTimeFormat(undefined,{ month:'short' }).format(d);
+        btn.appendChild(mon);
+      }
 
       var dow = document.createElement('span');
       dow.className = 'dow';
