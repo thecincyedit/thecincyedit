@@ -224,7 +224,8 @@
     color:var(--ink-faint); border:1px solid var(--line); border-radius:999px; padding:2px 8px;
   }
   .card-loc{ font-size:13.5px; color:var(--ink-soft); }
-  .card-notes{ font-size:14px; line-height:1.5; margin:0; }
+  .card-notes{ font-size:14px; line-height:1.5; margin:0; overflow-wrap:anywhere; }
+  .card-notes a{ color:var(--accent); text-decoration:underline; }
   .card-bottom{ display:flex; align-items:center; justify-content:space-between; gap:10px; flex-wrap:wrap; margin-top:2px; }
   .card-repeat{ font-size:12px; color:var(--ink-faint); font-style:italic; }
   .card-links{ display:flex; gap:8px; flex-wrap:wrap; }
@@ -565,10 +566,30 @@
     }
 
     if(ev.notes){
-      var notes = document.createElement('p');
-      notes.className = 'card-notes';
-      notes.textContent = ev.notes;
-      li.appendChild(notes);
+      var noteText = ev.notes.replace(/\n+\s*Categories:[\s\S]*$/i, '').trim();
+      if(noteText){
+        var notes = document.createElement('p');
+        notes.className = 'card-notes';
+        var urlRe = /(https?:\/\/[^\s]+)/g;
+        var lastIndex = 0;
+        var match;
+        while((match = urlRe.exec(noteText))){
+          if(match.index > lastIndex){
+            notes.appendChild(document.createTextNode(noteText.slice(lastIndex, match.index)));
+          }
+          var noteLink = document.createElement('a');
+          noteLink.href = match[0];
+          noteLink.target = '_blank';
+          noteLink.rel = 'noopener noreferrer';
+          noteLink.textContent = match[0];
+          notes.appendChild(noteLink);
+          lastIndex = urlRe.lastIndex;
+        }
+        if(lastIndex < noteText.length){
+          notes.appendChild(document.createTextNode(noteText.slice(lastIndex)));
+        }
+        li.appendChild(notes);
+      }
     }
 
     var bottom = document.createElement('div');
