@@ -17,6 +17,7 @@
     --ink-faint:#8B8D96;
     --line:#E4E3DE;
     --shadow: 0 1px 2px rgba(20,21,26,0.05), 0 10px 26px -14px rgba(20,21,26,0.16);
+    --accent:#FB4F14;
 
     --cat-arts:#2a78d6;
     --cat-food:#eb6834;
@@ -37,6 +38,7 @@
       --ink-faint:#77756F;
       --line:#2D2D2C;
       --shadow: 0 1px 2px rgba(0,0,0,0.4), 0 10px 26px -14px rgba(0,0,0,0.6);
+      --accent:#FF6B33;
 
       --cat-arts:#3987e5;
       --cat-food:#d95926;
@@ -57,6 +59,7 @@
     --ink-faint:#77756F;
     --line:#2D2D2C;
     --shadow: 0 1px 2px rgba(0,0,0,0.4), 0 10px 26px -14px rgba(0,0,0,0.6);
+    --accent:#FF6B33;
 
     --cat-arts:#3987e5;
     --cat-food:#d95926;
@@ -96,7 +99,7 @@
     font-family:'Work Sans',sans-serif; font-size:11px; font-weight:700;
     letter-spacing:0.4em; color:var(--ink);
   }
-  .logo-bar{ width:22px; height:5px; background:var(--ink); flex:0 0 auto; }
+  .logo-bar{ width:22px; height:5px; background:var(--accent); flex:0 0 auto; }
   .logo-cincy{
     font-family:'Bebas Neue', sans-serif; font-weight:400; text-transform:uppercase;
     font-size:clamp(46px,15vw,88px); line-height:0.82; letter-spacing:0.02em;
@@ -111,7 +114,7 @@
     margin:12px 0 0; font-size:11px; font-weight:600; letter-spacing:0.22em;
     text-transform:uppercase; color:var(--ink-soft);
   }
-  .tagline{ color:var(--ink-soft); margin:10px 0 0; font-size:15px; max-width:46ch; line-height:1.5; }
+  .tagline{ color:var(--ink-soft); margin:10px 0 0; font-size:15px; max-width:58ch; line-height:1.5; }
   .feature-flag{
     display:inline-flex; align-items:center; gap:8px; margin-top:12px;
     font-family:'Work Sans',sans-serif; font-size:12.5px; font-weight:600; line-height:1.3;
@@ -124,7 +127,7 @@
   .sitenav a{
     font-family:'Work Sans',sans-serif; font-size:12.5px; font-weight:700; letter-spacing:0.06em;
     text-transform:uppercase; color:var(--ink-soft); text-decoration:none;
-    padding:8px 14px; border:1px solid var(--line); border-radius:999px; background:var(--surface);
+    padding:8px 14px; border:1px solid var(--line); border-radius:0; background:var(--surface);
   }
   .sitenav a:hover{ color:var(--ink); border-color:var(--ink); }
   .sitenav a[aria-current="page"]{ color:var(--bg); background:var(--ink); border-color:var(--ink); }
@@ -170,7 +173,7 @@
   .cat-health .swatch, .swatch.cat-health { background:var(--cat-health); }
   .cat-sports .swatch, .swatch.cat-sports { background:var(--cat-sports); }
   /* Active chips: identity comes from the border + tinted wash, never from
-     colored text — a hue used as text color is exactly what was hard to read. */
+     colored text: a hue used as text color is exactly what was hard to read. */
   .chip[aria-pressed="true"]{ color:var(--ink); border-width:1.5px; }
   .chip.cat-arts[aria-pressed="true"]  { border-color:var(--cat-arts);   background:color-mix(in srgb, var(--cat-arts) 14%, var(--surface)); }
   .chip.cat-food[aria-pressed="true"]  { border-color:var(--cat-food);   background:color-mix(in srgb, var(--cat-food) 14%, var(--surface)); }
@@ -254,13 +257,13 @@
       <span class="logo-edit">EDIT</span>
     </h1>
     <p class="logo-tagline">Go Somewhere. Do Something.</p>
-    <p class="tagline">Cincinnati, day by day — free nights, live music, family stuff, and everything in between.</p>
-    <p class="feature-flag"><span class="dot" aria-hidden="true"></span>Add any event straight to your Google or Apple calendar — one tap, no retyping.</p>
+    <p class="tagline">Stop guessing what's happening in Cincinnati. The Cincy Edit pulls together the city's events, from free and family-friendly to food, music, and culture, and lays them out day by day so plans are easy to find and easy to make.</p>
+    <p class="feature-flag"><span class="dot" aria-hidden="true"></span>Add any event straight to your Google or Apple calendar, one tap, no retyping.</p>
     <nav class="sitenav" aria-label="Site">
       <a href="index.html" aria-current="page">Calendar</a>
-      <a href="about.html">About</a>
       <a href="social-club.html">Social Club</a>
       <a href="contact.html">Say Hi</a>
+      <a href="about.html">About</a>
     </nav>
   </header>
 
@@ -273,13 +276,12 @@
     <p class="day-count" id="dayCount"></p>
   </div>
 
-  <p class="empty-note" id="loadStatus">Loading events&hellip;</p>
-  <ul class="event-list" id="eventList" hidden></ul>
-  <p class="empty-note" id="emptyNote" hidden>Nothing listed for this day yet — check back soon or pick another day above.</p>
+  <ul class="event-list" id="eventList"></ul>
+  <p class="empty-note" id="emptyNote" hidden>Nothing listed for this day yet. Check back soon or pick another day above.</p>
 
   <footer>
-    <p>Curated by <a href="https://instagram.com/thecincyedit" target="_blank" rel="noopener"><strong>@TheCincyEdit</strong></a>. Events come straight from the public Cincy Edit calendar, so the lineup updates whenever new events are added there.</p>
-    <p>Events listed here are not affiliated with, run by, or endorsed by The Cincy Edit. This is simply a calendar &mdash; check with the event or venue directly for the latest details.</p>
+    <p>Curated by <a href="https://instagram.com/thecincyedit" target="_blank" rel="noopener"><strong>@TheCincyEdit</strong></a>. This page is updated by hand, so the lineup is only as fresh as the last update.</p>
+    <p>Events listed here are not affiliated with, run by, or endorsed by The Cincy Edit. This is simply a calendar. Check with the event or venue directly for the latest details.</p>
   </footer>
 </div>
 
@@ -297,12 +299,63 @@
     health: { label:'Health & Fitness' },
     sports: { label:'Sports' }
   };
-  var CAT_ORDER = ['free','adult','arts','family','food','health','music','sports'];
-  // Populated live from the public Google Calendar feed, fetched via a
-  // small serverless function (see netlify/functions/events.js) so the
-  // browser never has to talk to Google directly. Starts empty until
-  // loadEvents() below fills it in.
-  var EVENTS = [];
+  var CAT_ORDER = ['free','arts','family','food','health','sports','music','adult'];
+
+  // Sample listings, replace these with the real lineup. Each is tagged
+  // (example) in the title and shows a SAMPLE badge so nobody mistakes it
+  // for a confirmed event.
+  var EVENTS = [
+    { id:'ex1', title:'Cincinnati Art Museum: Free Admission (example)', categories:['free','arts'],
+      date:'2026-09-17', allDay:false, startTime:'17:00', endTime:'20:00',
+      location:'Cincinnati Art Museum, Eden Park',
+      notes:'Free every Thursday evening. Easy, low-key, and free.',
+      repeat:{ freq:'WEEKLY' }, isExample:true },
+    { id:'ex2', title:'Gallery Walk: Pendleton Art Center (example)', categories:['arts'],
+      date:'2026-09-18', allDay:false, startTime:'18:00', endTime:'22:00',
+      location:'Pendleton Art Center, OTR',
+      notes:'Studios open, local artists on hand, usually a line for the good snacks.',
+      repeat:null, isExample:true },
+    { id:'ex3', title:'Live Set at MOTR Pub (example)', categories:['music'],
+      date:'2026-09-18', allDay:false, startTime:'21:00', endTime:'23:30',
+      location:'MOTR Pub, OTR',
+      notes:'No cover most weeknights, check their page for who\u2019s playing.',
+      repeat:null, isExample:true },
+    { id:'ex4', title:'Findlay Market Saturday (example)', categories:['family','free'],
+      date:'2026-09-19', allDay:false, startTime:'09:00', endTime:'16:00',
+      location:'Findlay Market, OTR',
+      notes:'Produce, vendors, and usually a busker or two. Free to wander.',
+      repeat:{ freq:'WEEKLY' }, isExample:true },
+    { id:'ex5', title:'Trivia Night at Rhinegeist (example)', categories:['adult','food'],
+      date:'2026-09-19', allDay:false, startTime:'19:00', endTime:'21:00',
+      location:'Rhinegeist Brewery, OTR',
+      notes:'21+. Teams of up to 6, prizes are usually beer.',
+      repeat:{ freq:'WEEKLY' }, isExample:true },
+    { id:'ex6', title:'Reds Family Day Game (example)', categories:['family','sports'],
+      date:'2026-09-20', allDay:false, startTime:'13:10', endTime:'16:00',
+      location:'Great American Ball Park',
+      notes:'Kids run the bases after the game, weather permitting.',
+      repeat:null, isExample:true },
+    { id:'ex7', title:'Service Industry Night (example)', categories:['adult','music'],
+      date:'2026-09-21', allDay:false, startTime:'22:00', endTime:'23:59',
+      location:'A bar in OTR, swap in the real one',
+      notes:'21+. Discounted for service workers with ID.',
+      repeat:{ freq:'WEEKLY' }, isExample:true },
+    { id:'ex8', title:'Taste of Cincinnati Pop-Up (example)', categories:['food'],
+      date:'2026-09-22', allDay:false, startTime:'11:00', endTime:'20:00',
+      location:'Downtown Cincinnati',
+      notes:'Sample plates from a rotating list of local restaurants.',
+      repeat:null, isExample:true },
+    { id:'ex9', title:'Sunrise Yoga in Washington Park (example)', categories:['health','free'],
+      date:'2026-09-20', allDay:false, startTime:'08:00', endTime:'09:00',
+      location:'Washington Park',
+      notes:'Bring your own mat. Free, all levels welcome.',
+      repeat:{ freq:'WEEKLY' }, isExample:true },
+    { id:'ex10', title:'FC Cincinnati Watch Party (example)', categories:['sports','adult'],
+      date:'2026-09-21', allDay:false, startTime:'19:30', endTime:'22:00',
+      location:'Yard House, The Banks',
+      notes:'Big screens, happy hour menu through kickoff. 21+ bar side.',
+      repeat:null, isExample:true }
+  ];
 
   var daystripEl = document.getElementById('daystrip');
   var filtersEl = document.getElementById('filters');
@@ -330,8 +383,7 @@
 
   function occursOn(ev, dateStr){
     if(!ev.repeat || !ev.repeat.freq || ev.repeat.freq === 'NONE'){
-          var endD = ev.endDate || ev.date;
-    return dateStr >= ev.date && dateStr <= endD;
+      return dateStr === ev.date;
     }
     if(dateStr < ev.date) return false;
     if(ev.repeat.until && dateStr > ev.repeat.until) return false;
@@ -447,7 +499,7 @@
   function buildDayStrip(){
     daystripEl.innerHTML = '';
     var today = new Date();
-    for(var i = 0; i < 21; i++){
+    for(var i = 0; i < 60; i++){
       var d = new Date(today);
       d.setDate(d.getDate() + i);
       var dateStr = toDateStr(d);
@@ -613,7 +665,7 @@
 
     var d = new Date(selectedDate + 'T00:00:00');
     var today = toDateStr(new Date());
-    var headingPrefix = selectedDate === today ? 'Today — ' : '';
+    var headingPrefix = selectedDate === today ? 'Today, ' : '';
     dayHeadingEl.textContent = headingPrefix + new Intl.DateTimeFormat(undefined,{ weekday:'long', month:'long', day:'numeric' }).format(d);
 
     var dayEvents = EVENTS
@@ -632,33 +684,10 @@
     dayEvents.forEach(function(ev){ eventListEl.appendChild(renderCard(ev)); });
   }
 
-  var loadStatusEl = document.getElementById('loadStatus');
-
-  function loadEvents(){
-    fetch('/.netlify/functions/events')
-      .then(function(res){
-        if(!res.ok) throw new Error('bad response ' + res.status);
-        return res.json();
-      })
-      .then(function(data){
-        if(data && data.error) throw new Error(data.error);
-        EVENTS = (data && data.events) || [];
-        loadStatusEl.hidden = true;
-        eventListEl.hidden = false;
-        buildDayStrip();
-        buildFilters();
-        render();
-      })
-      .catch(function(){
-        loadStatusEl.textContent = "Couldn't load today's events right now. Try refreshing in a bit.";
-      });
-  }
-
   buildDayStrip();
   buildFilters();
-  loadEvents();
+  render();
 })();
 </script>
 </body>
 </html>
-
