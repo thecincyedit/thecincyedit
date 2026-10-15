@@ -3,7 +3,22 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/png" href="favicon-32.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
 <title>Social Club | The Cincy Edit</title>
+<meta name="description" content="A monthly newsletter built around what's already on the calendar: top picks and local finds, straight to your inbox.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="The Cincy Edit">
+<meta property="og:title" content="Social Club | The Cincy Edit">
+<meta property="og:description" content="A monthly newsletter built around what's already on the calendar: top picks and local finds, straight to your inbox.">
+<meta property="og:image" content="https://thecincyedit.com/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://thecincyedit.com/social-club.html">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Social Club | The Cincy Edit">
+<meta name="twitter:description" content="A monthly newsletter built around what's already on the calendar: top picks and local finds, straight to your inbox.">
+<meta name="twitter:image" content="https://thecincyedit.com/og-image.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Work+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
@@ -40,15 +55,9 @@
   .wrap{ max-width:640px; margin:0 auto; padding-block:28px 56px; display:flex; flex-direction:column; gap:28px; }
 
   header{ display:flex; flex-direction:column; gap:4px; padding-bottom:4px; }
-  .handle{
-    font-family:'IBM Plex Mono', ui-monospace, monospace; font-size:13px; font-weight:500;
-    color:var(--ink-soft); margin:0; letter-spacing:0.02em;
-    text-decoration:none; display:inline-block;
-  }
-  .handle:hover{ color:var(--ink); text-decoration:underline; }
   footer a{ color:inherit; text-decoration:none; }
   footer a:hover{ text-decoration:underline; }
-  .logo-lockup{ display:flex; flex-direction:column; align-items:flex-start; margin:6px 0 0; font-weight:400; width:max-content; max-width:100%; }
+  .logo-lockup{ display:flex; flex-direction:column; align-items:flex-start; margin:6px auto 0; font-weight:400; width:max-content; max-width:100%; }
   .logo-eyebrow{
     display:flex; align-items:center; gap:9px; margin-bottom:8px;
     font-family:'Work Sans',sans-serif; font-size:11px; font-weight:700; letter-spacing:0.4em; color:var(--ink);
@@ -64,7 +73,7 @@
     background:var(--ink); color:var(--bg);
     padding:6px 14px 2px; margin-top:8px; align-self:stretch; text-align:center;
   }
-  .logo-tagline{ margin:12px 0 0; font-size:11px; font-weight:600; letter-spacing:0.22em; text-transform:uppercase; color:var(--ink-soft); }
+  .logo-tagline{ margin:12px 0 0; font-size:11px; font-weight:600; letter-spacing:0.22em; text-transform:uppercase; color:var(--ink); text-align:center; }
 
   .sitenav{ display:flex; gap:8px; flex-wrap:wrap; margin-top:6px; }
   .sitenav a{
@@ -132,7 +141,6 @@
 <body>
 <div class="wrap">
   <header>
-    <a class="handle" href="https://instagram.com/thecincyedit" target="_blank" rel="noopener">@TheCincyEdit</a>
     <div class="logo-lockup">
       <span class="logo-eyebrow"><span class="logo-bar" aria-hidden="true"></span>THE</span>
       <span class="logo-cincy">CINCY</span>
@@ -142,7 +150,7 @@
     <nav class="sitenav" aria-label="Site">
       <a href="index.html">Calendar</a>
       <a href="social-club.html" aria-current="page">Social Club</a>
-      <a href="contact.html">Say Hi</a>
+      <a href="contact.html">Submit & Partner</a>
       <a href="about.html">About</a>
     </nav>
   </header>
@@ -181,8 +189,8 @@
       <input type="hidden" name="form-name" value="social-club-signup">
       <p hidden><label>Don't fill this out if you're human: <input name="bot-field"></label></p>
       <div class="row">
-        <input type="text" name="name" placeholder="First name">
-        <input type="email" name="email" placeholder="you@email.com" required>
+        <input type="text" name="name" placeholder="First name" aria-label="First name">
+        <input type="email" name="email" placeholder="you@email.com" aria-label="Email address" required>
       </div>
       <button type="submit">Join the Social Club</button>
     </form>
