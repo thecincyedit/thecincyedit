@@ -3,7 +3,22 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/png" href="favicon-32.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
 <title>Contact | The Cincy Edit</title>
+<meta name="description" content="Got an event that belongs on the calendar, or want to talk partnership? Reach The Cincy Edit here.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="The Cincy Edit">
+<meta property="og:title" content="Contact | The Cincy Edit">
+<meta property="og:description" content="Got an event that belongs on the calendar, or want to talk partnership? Reach The Cincy Edit here.">
+<meta property="og:image" content="https://thecincyedit.com/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://thecincyedit.com/contact.html">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Contact | The Cincy Edit">
+<meta name="twitter:description" content="Got an event that belongs on the calendar, or want to talk partnership? Reach The Cincy Edit here.">
+<meta name="twitter:image" content="https://thecincyedit.com/og-image.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Work+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
@@ -40,15 +55,9 @@
   .wrap{ max-width:640px; margin:0 auto; padding-block:28px 56px; display:flex; flex-direction:column; gap:28px; }
 
   header{ display:flex; flex-direction:column; gap:4px; padding-bottom:4px; }
-  .handle{
-    font-family:'IBM Plex Mono', ui-monospace, monospace; font-size:13px; font-weight:500;
-    color:var(--ink-soft); margin:0; letter-spacing:0.02em;
-    text-decoration:none; display:inline-block;
-  }
-  .handle:hover{ color:var(--ink); text-decoration:underline; }
   footer a{ color:inherit; text-decoration:none; }
   footer a:hover{ text-decoration:underline; }
-  .logo-lockup{ display:flex; flex-direction:column; align-items:flex-start; margin:6px 0 0; font-weight:400; width:max-content; max-width:100%; }
+  .logo-lockup{ display:flex; flex-direction:column; align-items:flex-start; margin:6px auto 0; font-weight:400; width:max-content; max-width:100%; }
   .logo-eyebrow{
     display:flex; align-items:center; gap:9px; margin-bottom:8px;
     font-family:'Work Sans',sans-serif; font-size:11px; font-weight:700; letter-spacing:0.4em; color:var(--ink);
@@ -64,7 +73,7 @@
     background:var(--ink); color:var(--bg);
     padding:6px 14px 2px; margin-top:8px; align-self:stretch; text-align:center;
   }
-  .logo-tagline{ margin:12px 0 0; font-size:11px; font-weight:600; letter-spacing:0.22em; text-transform:uppercase; color:var(--ink-soft); }
+  .logo-tagline{ margin:12px 0 0; font-size:11px; font-weight:600; letter-spacing:0.22em; text-transform:uppercase; color:var(--ink); text-align:center; }
 
   .sitenav{ display:flex; gap:8px; flex-wrap:wrap; margin-top:6px; }
   .sitenav a{
@@ -121,6 +130,25 @@
   .direct{ display:flex; flex-direction:column; gap:4px; }
   .direct a{ color:var(--ink); }
 
+  .signup-card{
+    background:var(--surface); border:1px solid var(--line); border-radius:16px;
+    padding:24px; box-shadow:var(--shadow); display:flex; flex-direction:column; gap:12px;
+  }
+  .signup-card form{ display:flex; gap:10px; flex-wrap:wrap; }
+  .signup-card input[type=email]{
+    flex:1 1 200px; font:inherit; font-size:15px; padding:11px 13px; border-radius:9px;
+    border:1px solid var(--line); background:var(--surface-2); color:var(--ink);
+  }
+  .signup-card input::placeholder{ color:var(--ink-faint); }
+  .signup-card button{
+    font-family:'Work Sans',sans-serif; font-size:13.5px; font-weight:700; letter-spacing:0.05em;
+    text-transform:uppercase; padding:12px 18px; border-radius:9px; border:none; cursor:pointer;
+    background:var(--ink); color:var(--bg);
+  }
+  .signup-card button:hover{ opacity:0.88; }
+  .signup-card.is-submitted form{ display:none; }
+  .signup-card.is-submitted .success{ display:block; }
+
   footer{ padding-top:8px; border-top:1px solid var(--line); }
   footer p{ font-size:13px; color:var(--ink-soft); line-height:1.6; margin:12px 0 0; max-width:none; }
   footer strong{ color:var(--ink); }
@@ -129,7 +157,6 @@
 <body>
 <div class="wrap">
   <header>
-    <a class="handle" href="https://instagram.com/thecincyedit" target="_blank" rel="noopener">@TheCincyEdit</a>
     <div class="logo-lockup">
       <span class="logo-eyebrow"><span class="logo-bar" aria-hidden="true"></span>THE</span>
       <span class="logo-cincy">CINCY</span>
@@ -139,12 +166,12 @@
     <nav class="sitenav" aria-label="Site">
       <a href="index.html">Calendar</a>
       <a href="social-club.html">Social Club</a>
-      <a href="contact.html" aria-current="page">Say Hi</a>
+      <a href="contact.html" aria-current="page">Submit & Partner</a>
       <a href="about.html">About</a>
     </nav>
   </header>
 
-  <h1 class="page-title">Say Hi</h1>
+  <h1 class="page-title">Submit an Event & Partner With Us</h1>
   <p class="lede">Got an event that belongs on the calendar, or want to talk partnership? Fill this out and it lands straight in the inbox. No account, no login.</p>
 
   <section class="formcard" id="contactBox">
@@ -194,6 +221,18 @@
     <p>DM <a href="https://instagram.com/thecincyedit" target="_blank" rel="noopener">@TheCincyEdit</a> on Instagram or TikTok, especially if you've got a flyer screenshot to send.</p>
   </section>
 
+  <section class="signup-card" id="footerSignup">
+    <h2>Stay in the loop</h2>
+    <p>Get the Social Club newsletter: top picks and local finds, once a month.</p>
+    <form name="footer-email-signup" method="POST" data-netlify="true" netlify-honeypot="bot-field" id="footerSignupForm">
+      <input type="hidden" name="form-name" value="footer-email-signup">
+      <p hidden><label>Don't fill this out if you're human: <input name="bot-field"></label></p>
+      <input type="email" name="email" placeholder="you@email.com" aria-label="Email address" required>
+      <button type="submit">Join</button>
+    </form>
+    <p class="success">You're in, watch for the first newsletter.</p>
+  </section>
+
   <footer>
     <p>Curated by <a href="https://instagram.com/thecincyedit" target="_blank" rel="noopener"><strong>@TheCincyEdit</strong></a>.</p>
     <p>Events listed here are not affiliated with, run by, or endorsed by The Cincy Edit. This is simply a calendar. Check with the event or venue directly for the latest details.</p>
@@ -204,6 +243,34 @@
 (function(){
   var box = document.getElementById('contactBox');
   var form = document.getElementById('contactForm');
+
+  function encode(data){
+    return Object.keys(data).map(function(k){
+      return encodeURIComponent(k) + '=' + encodeURIComponent(data[k]);
+    }).join('&');
+  }
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    var formData = new FormData(form);
+    var payload = {};
+    formData.forEach(function(value, key){ payload[key] = value; });
+
+    fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: encode(payload)
+    }).then(function(){
+      box.classList.add('is-submitted');
+    }).catch(function(){
+      box.classList.add('is-submitted');
+    });
+  });
+})();
+
+(function(){
+  var box = document.getElementById('footerSignup');
+  var form = document.getElementById('footerSignupForm');
 
   function encode(data){
     return Object.keys(data).map(function(k){
