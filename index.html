@@ -3,7 +3,22 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/png" href="favicon-32.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
 <title>The Cincy Edit</title>
+<meta name="description" content="Cincinnati's day-by-day guide to what's happening: free and family-friendly, food, music, arts, and more.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="The Cincy Edit">
+<meta property="og:title" content="The Cincy Edit">
+<meta property="og:description" content="Cincinnati's day-by-day guide to what's happening: free and family-friendly, food, music, arts, and more.">
+<meta property="og:image" content="https://thecincyedit.com/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://thecincyedit.com/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="The Cincy Edit">
+<meta name="twitter:description" content="Cincinnati's day-by-day guide to what's happening: free and family-friendly, food, music, arts, and more.">
+<meta name="twitter:image" content="https://thecincyedit.com/og-image.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Work+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
@@ -81,17 +96,11 @@
   .wrap{ max-width:640px; margin:0 auto; padding-block:28px 56px; display:flex; flex-direction:column; gap:20px; }
 
   header{ display:flex; flex-direction:column; gap:4px; padding-bottom:4px; }
-  .handle{
-    font-family:'IBM Plex Mono', ui-monospace, monospace; font-size:13px; font-weight:500;
-    color:var(--ink-soft); margin:0; letter-spacing:0.02em;
-    text-decoration:none; display:inline-block;
-  }
-  .handle:hover{ color:var(--ink); text-decoration:underline; }
   footer a{ color:inherit; text-decoration:none; }
   footer a:hover{ text-decoration:underline; }
   .logo-lockup{
     display:flex; flex-direction:column; align-items:flex-start;
-    margin:6px 0 0; font-style:normal; font-weight:400;
+    margin:6px auto 0; font-style:normal; font-weight:400;
     width:max-content; max-width:100%;
   }
   .logo-eyebrow{
@@ -112,9 +121,12 @@
   }
   .logo-tagline{
     margin:12px 0 0; font-size:11px; font-weight:600; letter-spacing:0.22em;
-    text-transform:uppercase; color:var(--ink-soft);
+    text-transform:uppercase; color:var(--ink); text-align:center;
   }
   .tagline{ color:var(--ink-soft); margin:10px 0 0; font-size:15px; max-width:58ch; line-height:1.5; }
+  .social-follow{ color:var(--ink-soft); margin:10px 0 0; font-size:14px; }
+  .social-follow a{ color:var(--cat-arts); font-weight:600; text-decoration:none; }
+  .social-follow a:hover{ text-decoration:underline; }
   .feature-flag{
     display:inline-flex; align-items:center; gap:8px; margin-top:12px;
     font-family:'Work Sans',sans-serif; font-size:12.5px; font-weight:600; line-height:1.3;
@@ -244,6 +256,31 @@
 
   .empty-note{ color:var(--ink-soft); font-size:14.5px; background:var(--surface); border:1px dashed var(--line); border-radius:12px; padding:20px; text-align:center; }
 
+  .signup-card{
+    background:var(--surface); border:1px solid var(--line); border-radius:16px;
+    padding:24px; box-shadow:var(--shadow); display:flex; flex-direction:column; gap:10px;
+  }
+  .signup-card h2{
+    font-family:'Bebas Neue',sans-serif; font-weight:400; text-transform:uppercase;
+    letter-spacing:0.02em; font-size:22px; margin:0;
+  }
+  .signup-card p{ font-size:15px; line-height:1.6; color:var(--ink-soft); margin:0; }
+  .signup-card form{ display:flex; gap:10px; flex-wrap:wrap; }
+  .signup-card input[type=email]{
+    flex:1 1 200px; font:inherit; font-size:15px; padding:11px 13px; border-radius:9px;
+    border:1px solid var(--line); background:var(--surface-2); color:var(--ink);
+  }
+  .signup-card input::placeholder{ color:var(--ink-faint); }
+  .signup-card button{
+    font-family:'Work Sans',sans-serif; font-size:13.5px; font-weight:700; letter-spacing:0.05em;
+    text-transform:uppercase; padding:12px 18px; border-radius:9px; border:none; cursor:pointer;
+    background:var(--ink); color:var(--bg);
+  }
+  .signup-card button:hover{ opacity:0.88; }
+  .signup-card .success{ display:none; font-size:15px; font-weight:700; color:var(--ink); margin:0; }
+  .signup-card.is-submitted form{ display:none; }
+  .signup-card.is-submitted .success{ display:block; }
+
   footer{ padding-top:8px; border-top:1px solid var(--line); }
   footer p{ font-size:13px; color:var(--ink-soft); line-height:1.6; margin:12px 0 0; }
   footer strong{ color:var(--ink); }
@@ -252,7 +289,6 @@
 <body>
 <div class="wrap">
   <header>
-    <a class="handle" href="https://instagram.com/thecincyedit" target="_blank" rel="noopener">@TheCincyEdit</a>
     <h1 class="logo-lockup">
       <span class="logo-eyebrow"><span class="logo-bar" aria-hidden="true"></span>THE</span>
       <span class="logo-cincy">CINCY</span>
@@ -260,11 +296,12 @@
     </h1>
     <p class="logo-tagline">Go Somewhere. Do Something.</p>
     <p class="tagline">Stop guessing what's happening in Cincinnati. The Cincy Edit pulls together the city's events, from free and family-friendly to food, music, and culture, and lays them out day by day so plans are easy to find and easy to make.</p>
+    <p class="social-follow">Follow along on <a href="https://instagram.com/thecincyedit" target="_blank" rel="noopener">Instagram</a> and <a href="https://tiktok.com/@thecincyedit" target="_blank" rel="noopener">TikTok</a>.</p>
     <p class="feature-flag"><span class="dot" aria-hidden="true"></span>Add any event straight to your Google or Apple calendar, one tap, no retyping.</p>
     <nav class="sitenav" aria-label="Site">
       <a href="index.html" aria-current="page">Calendar</a>
       <a href="social-club.html">Social Club</a>
-      <a href="contact.html">Say Hi</a>
+      <a href="contact.html">Submit & Partner</a>
       <a href="about.html">About</a>
     </nav>
   </header>
@@ -281,6 +318,18 @@
   <p class="empty-note" id="loadStatus">Loading events&hellip;</p>
   <ul class="event-list" id="eventList" hidden></ul>
   <p class="empty-note" id="emptyNote" hidden>Nothing listed for this day yet, check back soon or pick another day above.</p>
+
+  <div class="signup-card" id="footerSignup">
+    <h2>Stay in the loop</h2>
+    <p>Get the Social Club newsletter: top picks and local finds, once a month.</p>
+    <form name="footer-email-signup" method="POST" data-netlify="true" netlify-honeypot="bot-field" id="footerSignupForm">
+      <input type="hidden" name="form-name" value="footer-email-signup">
+      <p hidden><label>Don't fill this out if you're human: <input name="bot-field"></label></p>
+      <input type="email" name="email" placeholder="you@email.com" aria-label="Email address" required>
+      <button type="submit">Join</button>
+    </form>
+    <p class="success">You're in, watch for the first newsletter.</p>
+  </div>
 
   <footer>
     <p>Curated by <a href="https://instagram.com/thecincyedit" target="_blank" rel="noopener"><strong>@TheCincyEdit</strong></a>. Events come straight from the public Cincy Edit calendar, so the lineup updates whenever new events are added there.</p>
@@ -677,6 +726,34 @@
   buildDayStrip();
   buildFilters();
   loadEvents();
+})();
+
+(function(){
+  var box = document.getElementById('footerSignup');
+  var form = document.getElementById('footerSignupForm');
+
+  function encode(data){
+    return Object.keys(data).map(function(k){
+      return encodeURIComponent(k) + '=' + encodeURIComponent(data[k]);
+    }).join('&');
+  }
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    var formData = new FormData(form);
+    var payload = {};
+    formData.forEach(function(value, key){ payload[key] = value; });
+
+    fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: encode(payload)
+    }).then(function(){
+      box.classList.add('is-submitted');
+    }).catch(function(){
+      box.classList.add('is-submitted');
+    });
+  });
 })();
 </script>
 </body>
