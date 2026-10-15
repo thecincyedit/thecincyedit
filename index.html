@@ -42,6 +42,7 @@
     --cat-free:#008300;
     --cat-health:#6b4fc4;
     --cat-sports:#e34948;
+    --cat-networking:#0e7c86;
   }
   @media (prefers-color-scheme: dark){
     :root:not([data-theme="light"]){
@@ -63,6 +64,7 @@
       --cat-free:#008300;
       --cat-health:#8574d6;
       --cat-sports:#e66767;
+      --cat-networking:#2bb3bf;
     }
   }
   :root[data-theme="dark"]{
@@ -84,6 +86,7 @@
     --cat-free:#008300;
     --cat-health:#8574d6;
     --cat-sports:#e66767;
+    --cat-networking:#2bb3bf;
   }
 
   *{ box-sizing:border-box; }
@@ -186,6 +189,7 @@
   .cat-free   .swatch, .swatch.cat-free   { background:var(--cat-free); }
   .cat-health .swatch, .swatch.cat-health { background:var(--cat-health); }
   .cat-sports .swatch, .swatch.cat-sports { background:var(--cat-sports); }
+  .cat-networking .swatch, .swatch.cat-networking { background:var(--cat-networking); }
   /* Active chips: identity comes from the border + tinted wash, never from
      colored text: a hue used as text color is exactly what was hard to read. */
   .chip[aria-pressed="true"]{ color:var(--ink); border-width:1.5px; }
@@ -197,6 +201,7 @@
   .chip.cat-free[aria-pressed="true"]  { border-color:var(--cat-free);   background:color-mix(in srgb, var(--cat-free) 14%, var(--surface)); }
   .chip.cat-health[aria-pressed="true"]{ border-color:var(--cat-health); background:color-mix(in srgb, var(--cat-health) 14%, var(--surface)); }
   .chip.cat-sports[aria-pressed="true"]{ border-color:var(--cat-sports); background:color-mix(in srgb, var(--cat-sports) 14%, var(--surface)); }
+  .chip.cat-networking[aria-pressed="true"]{ border-color:var(--cat-networking); background:color-mix(in srgb, var(--cat-networking) 14%, var(--surface)); }
 
   /* day heading */
   .day-head{ display:flex; align-items:baseline; justify-content:space-between; gap:10px; flex-wrap:wrap; padding-top:4px; }
@@ -218,6 +223,7 @@
   .card.cat-free  { border-left-color:var(--cat-free); }
   .card.cat-health{ border-left-color:var(--cat-health); }
   .card.cat-sports{ border-left-color:var(--cat-sports); }
+  .card.cat-networking{ border-left-color:var(--cat-networking); }
 
   .card-top{ display:flex; justify-content:space-between; align-items:flex-start; gap:10px; flex-wrap:wrap; }
   .card-title{ font-weight:600; font-size:16.5px; line-height:1.3; margin:0; }
@@ -342,16 +348,17 @@
   "use strict";
 
   var CATS = {
-    arts:   { label:'Arts & Culture' },
-    food:   { label:'Food & Drink' },
-    music:  { label:'Music & Nightlife' },
-    family: { label:'Family Friendly' },
-    adult:  { label:'Adult Events (21+)' },
-    free:   { label:'Free / Budget-Friendly' },
-    health: { label:'Health & Fitness' },
-    sports: { label:'Sports' }
+    adult:      { label:'Adult Events (21+)' },
+    arts:       { label:'Arts & Culture' },
+    family:     { label:'Family Friendly' },
+    food:       { label:'Food & Drink' },
+    free:       { label:'Free / Budget-Friendly' },
+    health:     { label:'Health & Fitness' },
+    music:      { label:'Music & Nightlife' },
+    networking: { label:'Networking' },
+    sports:     { label:'Sports' }
   };
-  var CAT_ORDER = ['free','arts','family','food','health','sports','music','adult'];
+  var CAT_ORDER = ['adult','arts','family','food','free','health','music','networking','sports'];
   // Populated live from the public Google Calendar feed, fetched via a
   // small serverless function (see netlify/functions/events.js) so the
   // browser never has to talk to Google directly. Starts empty until
