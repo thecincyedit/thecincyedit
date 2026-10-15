@@ -3,7 +3,22 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/png" href="favicon-32.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
 <title>About | The Cincy Edit</title>
+<meta name="description" content="Cincinnati has a lot going on. The Cincy Edit is where it's actually organized, a day-by-day guide to the city's best events.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="The Cincy Edit">
+<meta property="og:title" content="About | The Cincy Edit">
+<meta property="og:description" content="Cincinnati has a lot going on. The Cincy Edit is where it's actually organized, a day-by-day guide to the city's best events.">
+<meta property="og:image" content="https://thecincyedit.com/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://thecincyedit.com/about.html">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="About | The Cincy Edit">
+<meta name="twitter:description" content="Cincinnati has a lot going on. The Cincy Edit is where it's actually organized, a day-by-day guide to the city's best events.">
+<meta name="twitter:image" content="https://thecincyedit.com/og-image.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Work+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
@@ -43,15 +58,9 @@
   .wrap{ max-width:640px; margin:0 auto; padding-block:28px 56px; display:flex; flex-direction:column; gap:28px; }
 
   header{ display:flex; flex-direction:column; gap:4px; padding-bottom:4px; }
-  .handle{
-    font-family:'IBM Plex Mono', ui-monospace, monospace; font-size:13px; font-weight:500;
-    color:var(--ink-soft); margin:0; letter-spacing:0.02em;
-    text-decoration:none; display:inline-block;
-  }
-  .handle:hover{ color:var(--ink); text-decoration:underline; }
   footer a{ color:inherit; text-decoration:none; }
   footer a:hover{ text-decoration:underline; }
-  .logo-lockup{ display:flex; flex-direction:column; align-items:flex-start; margin:6px 0 0; font-weight:400; width:max-content; max-width:100%; }
+  .logo-lockup{ display:flex; flex-direction:column; align-items:flex-start; margin:6px auto 0; font-weight:400; width:max-content; max-width:100%; }
   .logo-eyebrow{
     display:flex; align-items:center; gap:9px; margin-bottom:8px;
     font-family:'Work Sans',sans-serif; font-size:11px; font-weight:700; letter-spacing:0.4em; color:var(--ink);
@@ -67,7 +76,7 @@
     background:var(--ink); color:var(--bg);
     padding:6px 14px 2px; margin-top:8px; align-self:stretch; text-align:center;
   }
-  .logo-tagline{ margin:12px 0 0; font-size:11px; font-weight:600; letter-spacing:0.22em; text-transform:uppercase; color:var(--ink-soft); }
+  .logo-tagline{ margin:12px 0 0; font-size:11px; font-weight:600; letter-spacing:0.22em; text-transform:uppercase; color:var(--ink); text-align:center; }
 
   .sitenav{ display:flex; gap:8px; flex-wrap:wrap; margin-top:6px; }
   .sitenav a{
@@ -113,12 +122,22 @@
     display:flex; flex-direction:column; gap:10px; background:var(--surface);
     border:1px solid var(--line); border-radius:14px; padding:22px; box-shadow:var(--shadow);
   }
-  .cta a.btn{
+  .cta a.btn, .cta button.btn{
     align-self:flex-start; font-family:'Work Sans',sans-serif; font-size:13px; font-weight:700;
     letter-spacing:0.05em; text-transform:uppercase; text-decoration:none;
     color:var(--bg); background:var(--ink); border-radius:8px; padding:11px 18px;
+    border:none; cursor:pointer; font:inherit; font-weight:700;
   }
-  .cta a.btn:hover{ opacity:0.85; }
+  .cta a.btn:hover, .cta button.btn:hover{ opacity:0.85; }
+  .cta form{ display:flex; gap:10px; flex-wrap:wrap; align-items:flex-start; margin-top:2px; }
+  .cta input[type=email]{
+    flex:1 1 200px; font:inherit; font-size:15px; padding:11px 13px; border-radius:9px;
+    border:1px solid var(--line); background:var(--surface-2); color:var(--ink);
+  }
+  .cta input::placeholder{ color:var(--ink-faint); }
+  .cta .success{ display:none; font-size:15px; font-weight:700; color:var(--ink); margin:0; }
+  .cta.is-submitted form{ display:none; }
+  .cta.is-submitted .success{ display:block; }
 
   footer{ padding-top:8px; border-top:1px solid var(--line); }
   footer p{ font-size:13px; color:var(--ink-soft); line-height:1.6; margin:12px 0 0; max-width:none; }
@@ -128,7 +147,6 @@
 <body>
 <div class="wrap">
   <header>
-    <a class="handle" href="https://instagram.com/thecincyedit" target="_blank" rel="noopener">@TheCincyEdit</a>
     <div class="logo-lockup">
       <span class="logo-eyebrow"><span class="logo-bar" aria-hidden="true"></span>THE</span>
       <span class="logo-cincy">CINCY</span>
@@ -138,7 +156,7 @@
     <nav class="sitenav" aria-label="Site">
       <a href="index.html">Calendar</a>
       <a href="social-club.html">Social Club</a>
-      <a href="contact.html">Say Hi</a>
+      <a href="contact.html">Submit & Partner</a>
       <a href="about.html" aria-current="page">About</a>
     </nav>
   </header>
@@ -170,10 +188,16 @@
     <p>Every event on this calendar is added by hand, picked because it's worth knowing about. Got something that belongs here? That's exactly what the contact page is for.</p>
   </section>
 
-  <div class="cta">
+  <div class="cta" id="footerSignup">
     <h2 style="font-size:20px">Want in on more than the calendar?</h2>
     <p>The Social Club is a small newsletter built around the events already on this page: top picks and local finds, once a month.</p>
-    <a class="btn" href="social-club.html">See the Social Club</a>
+    <form name="footer-email-signup" method="POST" data-netlify="true" netlify-honeypot="bot-field" id="footerSignupForm">
+      <input type="hidden" name="form-name" value="footer-email-signup">
+      <p hidden><label>Don't fill this out if you're human: <input name="bot-field"></label></p>
+      <input type="email" name="email" placeholder="you@email.com" aria-label="Email address" required>
+      <button type="submit" class="btn">Join</button>
+    </form>
+    <p class="success">You're in, watch for the first newsletter.</p>
   </div>
 
   <footer>
@@ -181,5 +205,35 @@
     <p>Events listed here are not affiliated with, run by, or endorsed by The Cincy Edit. This is simply a calendar. Check with the event or venue directly for the latest details.</p>
   </footer>
 </div>
+
+<script>
+(function(){
+  var box = document.getElementById('footerSignup');
+  var form = document.getElementById('footerSignupForm');
+
+  function encode(data){
+    return Object.keys(data).map(function(k){
+      return encodeURIComponent(k) + '=' + encodeURIComponent(data[k]);
+    }).join('&');
+  }
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    var formData = new FormData(form);
+    var payload = {};
+    formData.forEach(function(value, key){ payload[key] = value; });
+
+    fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: encode(payload)
+    }).then(function(){
+      box.classList.add('is-submitted');
+    }).catch(function(){
+      box.classList.add('is-submitted');
+    });
+  });
+})();
+</script>
 </body>
 </html>
