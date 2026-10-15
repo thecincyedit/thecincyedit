@@ -13,6 +13,8 @@
 // UPDATED 2026-09-21: multi-day events (End Date filled in on the Sheet)
 // now carry an "endDate" field through to the page, so the calendar page
 // can show them on every day they run, not just the first day.
+//
+// UPDATED 2026-10-15: added "Networking" as a recognized category.
 
 const ICS_URL = process.env.CINCY_CALENDAR_ICS_URL || "";
 
@@ -26,7 +28,8 @@ const CATEGORY_LABEL_TO_KEY = {
   "free/budget-friendly": "free",
   "free / budget-friendly": "free",
   "health & fitness": "health",
-  "sports": "sports"
+  "sports": "sports",
+  "networking": "networking"
 };
 
 function unfoldLines(raw) {
