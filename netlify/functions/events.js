@@ -156,6 +156,15 @@ function parseRRule(value, allDay) {
   return repeat;
 }
 
+// Only ever pass through an http/https URL. The URL field comes straight
+// from the public calendar, so this keeps a javascript:/data: URL someone
+// puts in an event's Link field from ever reaching the page as a clickable
+// link.
+function safeUrl(value) {
+  if (!value) return "";
+  return /^https?:\/\//i.test(value) ? value : "";
+}
+
 function mapCategories(categoriesValue, descriptionValue) {
   const found = new Set();
   const scan = (text) => {
@@ -249,7 +258,7 @@ function parseICS(raw) {
       startTime: start.time || "00:00",
       endTime: end.time || start.time || "23:59",
       location: ev.location || "",
-      link: ev.url || "",
+      link: safeUrl(ev.url),
       notes,
       repeat: parseRRule(ev.rrule, start.allDay)
     });
