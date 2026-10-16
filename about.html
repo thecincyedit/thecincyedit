@@ -122,6 +122,13 @@
   .catlist .cat-sports .swatch{ background:var(--cat-sports); }
   .catlist .cat-networking .swatch{ background:var(--cat-networking); }
 
+  .skip-link{
+    position:absolute; left:-9999px; top:0; z-index:1000;
+    background:var(--ink); color:var(--bg); padding:10px 16px;
+    border-radius:0 0 8px 0; font-weight:600; font-size:14px; text-decoration:none;
+  }
+  .skip-link:focus{ left:0; }
+
   .cta{
     display:flex; flex-direction:column; gap:10px; background:var(--surface);
     border:1px solid var(--line); border-radius:14px; padding:22px; box-shadow:var(--shadow);
@@ -149,6 +156,7 @@
 </style>
 </head>
 <body>
+<a class="skip-link" href="#main">Skip to content</a>
 <div class="wrap">
   <header>
     <div class="logo-lockup">
@@ -165,6 +173,7 @@
     </nav>
   </header>
 
+  <main id="main">
   <h1 class="page-title">About</h1>
   <p class="lede">Cincinnati has a lot going on. The Cincy Edit is where it's actually organized. A day-by-day guide to the city's best events, from happy hours to family outings to live music, curated so you never have to dig for it.</p>
 
@@ -204,6 +213,7 @@
     </form>
     <p class="success">You're in, watch for the first newsletter.</p>
   </div>
+  </main>
 
   <footer>
     <p>Curated by <a href="https://instagram.com/thecincyedit" target="_blank" rel="noopener"><strong>@TheCincyEdit</strong></a>.</p>
