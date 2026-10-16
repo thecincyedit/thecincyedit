@@ -100,6 +100,7 @@
     padding-inline:16px;
   }
   .wrap{ max-width:640px; margin:0 auto; padding-block:28px 56px; display:flex; flex-direction:column; gap:20px; }
+  main{ display:flex; flex-direction:column; gap:20px; }
 
   header{ display:flex; flex-direction:column; gap:4px; padding-bottom:4px; }
   footer a{ color:inherit; text-decoration:none; }
@@ -361,7 +362,6 @@
   "use strict";
 
   var CATS = {
-    adult:      { label:'Adult Events (21+)' },
     arts:       { label:'Arts & Culture' },
     family:     { label:'Family Friendly' },
     food:       { label:'Food & Drink' },
@@ -369,9 +369,10 @@
     health:     { label:'Health & Fitness' },
     music:      { label:'Music & Nightlife' },
     networking: { label:'Networking' },
-    sports:     { label:'Sports' }
+    sports:     { label:'Sports' },
+    adult:      { label:'Adult Events (21+)' }
   };
-  var CAT_ORDER = ['adult','arts','family','food','free','health','music','networking','sports'];
+  var CAT_ORDER = ['arts','family','food','free','health','music','networking','sports','adult'];
   // Populated live from the public Google Calendar feed, fetched via a
   // small serverless function (see netlify/functions/events.js) so the
   // browser never has to talk to Google directly. Starts empty until
