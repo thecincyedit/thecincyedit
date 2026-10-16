@@ -6,6 +6,7 @@
 <link rel="icon" type="image/png" href="favicon-32.png">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <title>The Cincy Edit</title>
+<link rel="canonical" href="https://thecincyedit.com/">
 <meta name="description" content="Cincinnati's day-by-day guide to what's happening: free and family-friendly, food, music, arts, and more.">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="The Cincy Edit">
@@ -728,6 +729,66 @@
 
   var loadStatusEl = document.getElementById('loadStatus');
 
+  // "YYYY-MM-DD" + "HH:MM" -> "YYYY-MM-DDTHH:MM:00". For an all-day event
+  // (no time passed) this returns just the date, which schema.org/Event
+  // also accepts for startDate/endDate.
+  function isoDateTime(dateStr, timeStr){
+    if(!dateStr) return undefined;
+    if(!timeStr) return dateStr;
+    return dateStr + 'T' + timeStr + ':00';
+  }
+
+  // Structured data (schema.org/Event) describing the loaded events, so
+  // search engines can tell these are real events with real dates, times,
+  // and locations, not just text on a page, which is what makes them
+  // eligible for Google's event-specific search results. Built straight
+  // from the same calendar data the cards above render from. Set via
+  // .textContent (never innerHTML or string-built HTML) so nothing in an
+  // event's title/notes/location can break out of the <script> tag, the
+  // same defense used for every other piece of calendar content on this
+  // page.
+  function injectEventSchema(events){
+    var items = events.slice(0, 200).map(function(ev){
+      var item = {
+        '@context': 'https://schema.org',
+        '@type': 'Event',
+        name: ev.title,
+        startDate: isoDateTime(ev.date, ev.allDay ? undefined : ev.startTime),
+        endDate: isoDateTime(ev.endDate || ev.date, ev.allDay ? undefined : ev.endTime),
+        eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
+        eventStatus: 'https://schema.org/EventScheduled',
+        location: {
+          '@type': 'Place',
+          name: ev.location || 'Cincinnati, OH',
+          address: {
+            '@type': 'PostalAddress',
+            addressLocality: 'Cincinnati',
+            addressRegion: 'OH',
+            addressCountry: 'US'
+          }
+        },
+        image: ['https://thecincyedit.com/og-image.png']
+      };
+      if(ev.notes) item.description = ev.notes;
+      // Same http(s)-only check used for the "More info" link on the card
+      // itself (see renderCard above and safeUrl() in events.js) applied
+      // again here, since this value is about to go into a different field
+      // (structured-data "url") and shouldn't skip that check just because
+      // it's JSON-LD text rather than a clickable href.
+      if(ev.link && /^https?:\/\//i.test(ev.link)) item.url = ev.link;
+      return item;
+    });
+
+    var script = document.getElementById('eventSchema');
+    if(!script){
+      script = document.createElement('script');
+      script.type = 'application/ld+json';
+      script.id = 'eventSchema';
+      document.head.appendChild(script);
+    }
+    script.textContent = JSON.stringify(items);
+  }
+
   function loadEvents(){
     fetch('/.netlify/functions/events')
       .then(function(res){
@@ -742,6 +803,7 @@
         buildDayStrip();
         buildFilters();
         render();
+        injectEventSchema(EVENTS);
       })
       .catch(function(){
         loadStatusEl.textContent = "Couldn't load today's events right now. Try refreshing in a bit.";
