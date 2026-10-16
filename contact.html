@@ -5,19 +5,19 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="icon" type="image/png" href="favicon-32.png">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
-<title>Contact | The Cincy Edit</title>
-<meta name="description" content="Got an event that belongs on the calendar, or want to talk partnership? Reach The Cincy Edit here.">
+<title>Submit & Partner | The Cincy Edit</title>
+<meta name="description" content="Got an event that belongs on the calendar, or want to talk partnership? Submit it to The Cincy Edit here.">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="The Cincy Edit">
-<meta property="og:title" content="Contact | The Cincy Edit">
-<meta property="og:description" content="Got an event that belongs on the calendar, or want to talk partnership? Reach The Cincy Edit here.">
+<meta property="og:title" content="Submit & Partner | The Cincy Edit">
+<meta property="og:description" content="Got an event that belongs on the calendar, or want to talk partnership? Submit it to The Cincy Edit here.">
 <meta property="og:image" content="https://thecincyedit.com/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:url" content="https://thecincyedit.com/contact.html">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Contact | The Cincy Edit">
-<meta name="twitter:description" content="Got an event that belongs on the calendar, or want to talk partnership? Reach The Cincy Edit here.">
+<meta name="twitter:title" content="Submit & Partner | The Cincy Edit">
+<meta name="twitter:description" content="Got an event that belongs on the calendar, or want to talk partnership? Submit it to The Cincy Edit here.">
 <meta name="twitter:image" content="https://thecincyedit.com/og-image.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -122,6 +122,13 @@
   }
   .formcard button:hover{ opacity:0.88; }
   .fineprint{ font-size:11.5px; color:var(--ink-faint); margin:0; max-width:none; }
+
+  .skip-link{
+    position:absolute; left:-9999px; top:0; z-index:1000;
+    background:var(--ink); color:var(--bg); padding:10px 16px;
+    border-radius:0 0 8px 0; font-weight:600; font-size:14px; text-decoration:none;
+  }
+  .skip-link:focus{ left:0; }
   .success{ display:none; font-size:15px; color:var(--good); font-weight:600; }
   .formcard.is-submitted form{ display:none; }
   .formcard.is-submitted .success{ display:block; }
@@ -155,6 +162,7 @@
 </style>
 </head>
 <body>
+<a class="skip-link" href="#main">Skip to content</a>
 <div class="wrap">
   <header>
     <div class="logo-lockup">
@@ -171,6 +179,7 @@
     </nav>
   </header>
 
+  <main id="main">
   <h1 class="page-title">Submit an Event & Partner With Us</h1>
   <p class="lede">Got an event that belongs on the calendar, or want to talk partnership? Fill this out and it lands straight in the inbox. No account, no login.</p>
 
@@ -232,6 +241,7 @@
     </form>
     <p class="success">You're in, watch for the first newsletter.</p>
   </section>
+  </main>
 
   <footer>
     <p>Curated by <a href="https://instagram.com/thecincyedit" target="_blank" rel="noopener"><strong>@TheCincyEdit</strong></a>.</p>
