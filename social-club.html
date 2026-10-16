@@ -97,6 +97,13 @@
   }
   p{ font-size:15px; line-height:1.65; color:var(--ink-soft); margin:0; max-width:58ch; }
 
+  .skip-link{
+    position:absolute; left:-9999px; top:0; z-index:1000;
+    background:var(--ink); color:var(--bg); padding:10px 16px;
+    border-radius:0 0 8px 0; font-weight:600; font-size:14px; text-decoration:none;
+  }
+  .skip-link:focus{ left:0; }
+
   .cardgrid{ display:flex; flex-direction:column; gap:10px; }
   .feature{
     background:var(--surface); border:1px solid var(--line); border-radius:12px;
@@ -139,6 +146,7 @@
 </style>
 </head>
 <body>
+<a class="skip-link" href="#main">Skip to content</a>
 <div class="wrap">
   <header>
     <div class="logo-lockup">
@@ -155,6 +163,7 @@
     </nav>
   </header>
 
+  <main id="main">
   <h1 class="page-title">Social Club</h1>
   <p class="lede">A monthly newsletter built around what's already on the calendar: top picks and local finds, straight to your inbox.</p>
 
@@ -196,6 +205,7 @@
     </form>
     <p class="success">You're in, watch for the first newsletter.</p>
   </section>
+  </main>
 
   <footer>
     <p>Curated by <a href="https://instagram.com/thecincyedit" target="_blank" rel="noopener"><strong>@TheCincyEdit</strong></a>.</p>
