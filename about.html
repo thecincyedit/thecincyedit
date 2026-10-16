@@ -14,20 +14,20 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="icon" type="image/png" href="favicon-32.png">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
-<title>Submit & Partner | The Cincy Edit</title>
-<link rel="canonical" href="https://thecincyedit.com/contact.html">
-<meta name="description" content="Got an event that belongs on the calendar, or want to talk partnership? Submit it to The Cincy Edit here.">
+<title>About | The Cincy Edit</title>
+<link rel="canonical" href="https://thecincyedit.com/about.html">
+<meta name="description" content="Cincinnati has a lot going on. The Cincy Edit is where it's actually organized, a day-by-day guide to the city's best events.">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="The Cincy Edit">
-<meta property="og:title" content="Submit & Partner | The Cincy Edit">
-<meta property="og:description" content="Got an event that belongs on the calendar, or want to talk partnership? Submit it to The Cincy Edit here.">
+<meta property="og:title" content="About | The Cincy Edit">
+<meta property="og:description" content="Cincinnati has a lot going on. The Cincy Edit is where it's actually organized, a day-by-day guide to the city's best events.">
 <meta property="og:image" content="https://thecincyedit.com/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:url" content="https://thecincyedit.com/contact.html">
+<meta property="og:url" content="https://thecincyedit.com/about.html">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Submit & Partner | The Cincy Edit">
-<meta name="twitter:description" content="Got an event that belongs on the calendar, or want to talk partnership? Submit it to The Cincy Edit here.">
+<meta name="twitter:title" content="About | The Cincy Edit">
+<meta name="twitter:description" content="Cincinnati has a lot going on. The Cincy Edit is where it's actually organized, a day-by-day guide to the city's best events.">
 <meta name="twitter:image" content="https://thecincyedit.com/og-image.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -38,7 +38,9 @@
     --ink:#14151A; --ink-soft:#5B5D66; --ink-faint:#8B8D96; --line:#E4E3DE;
     --shadow: 0 1px 2px rgba(20,21,26,0.05), 0 10px 26px -14px rgba(20,21,26,0.16);
     --accent:#FB4F14;
-    --good:#0ca30c;
+    --cat-arts:#2a78d6; --cat-food:#eb6834; --cat-music:#0f8f68; --cat-family:#b97800;
+    --cat-adult:#c2367a; --cat-free:#008300; --cat-health:#6b4fc4; --cat-sports:#e34948;
+    --cat-networking:#0e7c86;
   }
   @media (prefers-color-scheme: dark){
     :root:not([data-theme="light"]){
@@ -46,7 +48,9 @@
       --ink:#F5F4F1; --ink-soft:#A8A6A0; --ink-faint:#77756F; --line:#2D2D2C;
       --shadow: 0 1px 2px rgba(0,0,0,0.4), 0 10px 26px -14px rgba(0,0,0,0.6);
       --accent:#FF6B33;
-      --good:#3ec93e;
+      --cat-arts:#3987e5; --cat-food:#d95926; --cat-music:#1f9e73; --cat-family:#c98500;
+      --cat-adult:#e0609f; --cat-free:#008300; --cat-health:#8574d6; --cat-sports:#e66767;
+      --cat-networking:#2bb3bf;
     }
   }
   :root[data-theme="dark"]{
@@ -54,7 +58,9 @@
     --ink:#F5F4F1; --ink-soft:#A8A6A0; --ink-faint:#77756F; --line:#2D2D2C;
     --shadow: 0 1px 2px rgba(0,0,0,0.4), 0 10px 26px -14px rgba(0,0,0,0.6);
     --accent:#FF6B33;
-    --good:#3ec93e;
+    --cat-arts:#3987e5; --cat-food:#d95926; --cat-music:#1f9e73; --cat-family:#c98500;
+    --cat-adult:#e0609f; --cat-free:#008300; --cat-health:#8574d6; --cat-sports:#e66767;
+    --cat-networking:#2bb3bf;
   }
   *{ box-sizing:border-box; }
   body{
@@ -100,6 +106,7 @@
     letter-spacing:0.015em; font-size:clamp(30px,7vw,40px); line-height:0.92; margin:0;
   }
   .lede{ font-size:16px; line-height:1.6; color:var(--ink); max-width:56ch; margin:0; }
+  .lede strong{ color:var(--ink); }
 
   section{ display:flex; flex-direction:column; gap:12px; }
   h2{
@@ -108,31 +115,23 @@
   }
   p{ font-size:15px; line-height:1.65; color:var(--ink-soft); margin:0; max-width:58ch; }
 
-  .formcard{
-    background:var(--surface); border:1px solid var(--line); border-radius:16px;
-    padding:24px; box-shadow:var(--shadow); display:flex; flex-direction:column; gap:14px;
+  .catlist{ display:flex; flex-wrap:wrap; gap:8px; }
+  .catlist span{
+    display:inline-flex; align-items:center; gap:7px;
+    font-size:11.5px; font-weight:700; letter-spacing:0.06em; text-transform:uppercase;
+    color:var(--ink-soft); background:var(--surface-2); border:1px solid var(--line);
+    border-radius:999px; padding:6px 12px 6px 10px;
   }
-  .formcard form{ display:flex; flex-direction:column; gap:12px; }
-  .field{ display:flex; flex-direction:column; gap:6px; }
-  .field label{
-    font-family:'Work Sans',sans-serif; font-size:11.5px; font-weight:700; letter-spacing:0.06em;
-    text-transform:uppercase; color:var(--ink-faint);
-  }
-  .field input, .field select, .field textarea{
-    font:inherit; font-size:15px; padding:11px 13px; border-radius:9px;
-    border:1px solid var(--line); background:var(--surface-2); color:var(--ink);
-  }
-  .field textarea{ resize:vertical; min-height:96px; }
-  .field input::placeholder, .field textarea::placeholder{ color:var(--ink-faint); }
-  .row{ display:flex; gap:10px; flex-wrap:wrap; }
-  .row .field{ flex:1 1 200px; }
-  .formcard button{
-    font-family:'Work Sans',sans-serif; font-size:13.5px; font-weight:700; letter-spacing:0.05em;
-    text-transform:uppercase; padding:12px 18px; border-radius:9px; border:none; cursor:pointer;
-    background:var(--ink); color:var(--bg); align-self:flex-start;
-  }
-  .formcard button:hover{ opacity:0.88; }
-  .fineprint{ font-size:11.5px; color:var(--ink-faint); margin:0; max-width:none; }
+  .catlist .swatch{ width:9px; height:9px; border-radius:50%; flex:0 0 auto; }
+  .catlist .cat-arts .swatch  { background:var(--cat-arts); }
+  .catlist .cat-food .swatch  { background:var(--cat-food); }
+  .catlist .cat-music .swatch { background:var(--cat-music); }
+  .catlist .cat-family .swatch{ background:var(--cat-family); }
+  .catlist .cat-adult .swatch { background:var(--cat-adult); }
+  .catlist .cat-free .swatch  { background:var(--cat-free); }
+  .catlist .cat-health .swatch{ background:var(--cat-health); }
+  .catlist .cat-sports .swatch{ background:var(--cat-sports); }
+  .catlist .cat-networking .swatch{ background:var(--cat-networking); }
 
   .skip-link{
     position:absolute; left:-9999px; top:0; z-index:1000;
@@ -140,32 +139,27 @@
     border-radius:0 0 8px 0; font-weight:600; font-size:14px; text-decoration:none;
   }
   .skip-link:focus{ left:0; }
-  .success{ display:none; font-size:15px; color:var(--good); font-weight:600; }
-  .formcard.is-submitted form{ display:none; }
-  .formcard.is-submitted .success{ display:block; }
-  [hidden]{ display:none !important; }
 
-  .direct{ display:flex; flex-direction:column; gap:4px; }
-  .direct a{ color:var(--ink); }
-
-  .signup-card{
-    background:var(--surface); border:1px solid var(--line); border-radius:16px;
-    padding:24px; box-shadow:var(--shadow); display:flex; flex-direction:column; gap:12px;
+  .cta{
+    display:flex; flex-direction:column; gap:10px; background:var(--surface);
+    border:1px solid var(--line); border-radius:14px; padding:22px; box-shadow:var(--shadow);
   }
-  .signup-card form{ display:flex; gap:10px; flex-wrap:wrap; }
-  .signup-card input[type=email]{
+  .cta a.btn, .cta button.btn{
+    align-self:flex-start; font-family:'Work Sans',sans-serif; font-size:13px; font-weight:700;
+    letter-spacing:0.05em; text-transform:uppercase; text-decoration:none;
+    color:var(--bg); background:var(--ink); border-radius:8px; padding:11px 18px;
+    border:none; cursor:pointer; font:inherit; font-weight:700;
+  }
+  .cta a.btn:hover, .cta button.btn:hover{ opacity:0.85; }
+  .cta form{ display:flex; gap:10px; flex-wrap:wrap; align-items:flex-start; margin-top:2px; }
+  .cta input[type=email]{
     flex:1 1 200px; font:inherit; font-size:15px; padding:11px 13px; border-radius:9px;
     border:1px solid var(--line); background:var(--surface-2); color:var(--ink);
   }
-  .signup-card input::placeholder{ color:var(--ink-faint); }
-  .signup-card button{
-    font-family:'Work Sans',sans-serif; font-size:13.5px; font-weight:700; letter-spacing:0.05em;
-    text-transform:uppercase; padding:12px 18px; border-radius:9px; border:none; cursor:pointer;
-    background:var(--ink); color:var(--bg);
-  }
-  .signup-card button:hover{ opacity:0.88; }
-  .signup-card.is-submitted form{ display:none; }
-  .signup-card.is-submitted .success{ display:block; }
+  .cta input::placeholder{ color:var(--ink-faint); }
+  .cta .success{ display:none; font-size:15px; font-weight:700; color:var(--ink); margin:0; }
+  .cta.is-submitted form{ display:none; }
+  .cta.is-submitted .success{ display:block; }
 
   footer{ padding-top:8px; border-top:1px solid var(--line); }
   footer p{ font-size:13px; color:var(--ink-soft); line-height:1.6; margin:12px 0 0; max-width:none; }
@@ -185,73 +179,51 @@
     <nav class="sitenav" aria-label="Site">
       <a href="index.html">Calendar</a>
       <a href="social-club.html">Social Club</a>
-      <a href="contact.html" aria-current="page">Submit & Partner</a>
-      <a href="about.html">About</a>
+      <a href="contact.html">Submit & Partner</a>
+      <a href="about.html" aria-current="page">About</a>
     </nav>
   </header>
 
   <main id="main">
-  <h1 class="page-title">Submit an Event & Partner With Us</h1>
-  <p class="lede">Got an event that belongs on the calendar, or want to talk partnership? Fill this out and it lands straight in the inbox. No account, no login.</p>
+  <h1 class="page-title">About</h1>
+  <p class="lede">Cincinnati has a lot going on. The Cincy Edit is where it's actually organized. A day-by-day guide to the city's best events, from happy hours to family outings to live music, curated so you never have to dig for it.</p>
 
-  <section class="formcard" id="contactBox">
-    <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" id="contactForm">
-      <input type="hidden" name="form-name" value="contact">
-      <p hidden><label>Don't fill this out if you're human: <input name="bot-field"></label></p>
-
-      <div class="field">
-        <label for="reason">What's this about</label>
-        <select id="reason" name="reason" required>
-          <option value="">Choose one</option>
-          <option value="Submit an event">Submit an event</option>
-          <option value="Partner with us">Partner with us</option>
-          <option value="Just saying hi">Just saying hi</option>
-        </select>
-      </div>
-
-      <div class="row">
-        <div class="field">
-          <label for="name">Name</label>
-          <input type="text" id="name" name="name" placeholder="First and last">
-        </div>
-        <div class="field">
-          <label for="email">Email</label>
-          <input type="email" id="email" name="email" placeholder="you@email.com" required>
-        </div>
-      </div>
-
-      <div class="field">
-        <label for="message">Details</label>
-        <textarea id="message" name="message" placeholder="Event name, date, time, and where to find more, or whatever else you've got." required></textarea>
-      </div>
-
-      <div class="field">
-        <label for="link">Link or flyer (optional)</label>
-        <input type="text" id="link" name="link" placeholder="Instagram post, event page, or a link to an image">
-      </div>
-
-      <button type="submit">Send it</button>
-      <p class="fineprint">Screenshots of flyers work too. If you've got one and no link, mention that in the details and send it over on Instagram or TikTok instead.</p>
-    </form>
-    <p class="success">Got it, thanks for sending that over.</p>
+  <section>
+    <h2>What we cover</h2>
+    <div class="catlist">
+      <span class="cat-arts"><span class="swatch" aria-hidden="true"></span>Arts &amp; Culture</span>
+      <span class="cat-family"><span class="swatch" aria-hidden="true"></span>Family Friendly</span>
+      <span class="cat-food"><span class="swatch" aria-hidden="true"></span>Food &amp; Drink</span>
+      <span class="cat-free"><span class="swatch" aria-hidden="true"></span>Free &amp; Budget-Friendly</span>
+      <span class="cat-health"><span class="swatch" aria-hidden="true"></span>Health &amp; Fitness</span>
+      <span class="cat-music"><span class="swatch" aria-hidden="true"></span>Music &amp; Nightlife</span>
+      <span class="cat-networking"><span class="swatch" aria-hidden="true"></span>Networking</span>
+      <span class="cat-sports"><span class="swatch" aria-hidden="true"></span>Sports</span>
+      <span class="cat-adult"><span class="swatch" aria-hidden="true"></span>Adult Events (21+)</span>
+    </div>
   </section>
 
-  <section class="direct">
-    <h2>Or find us directly</h2>
-    <p>DM <a href="https://instagram.com/thecincyedit" target="_blank" rel="noopener">@TheCincyEdit</a> on Instagram or TikTok, especially if you've got a flyer screenshot to send.</p>
+  <section>
+    <h2>Add it straight to your calendar</h2>
+    <p>Every event on the calendar has a one-tap button to add it to your Google or Apple calendar. No screenshotting a flyer and hoping you remember, no retyping the date and time by hand. That's not something most local event roundups let you do.</p>
   </section>
 
-  <section class="signup-card" id="footerSignup">
-    <h2>Stay in the loop</h2>
-    <p>Get the Social Club newsletter: top picks and local finds, once a month.</p>
+  <section>
+    <h2>How it's kept up to date</h2>
+    <p>Every event on this calendar is added by hand, picked because it's worth knowing about. Got something that belongs here? That's exactly what the contact page is for.</p>
+  </section>
+
+  <div class="cta" id="footerSignup">
+    <h2 style="font-size:20px">Want in on more than the calendar?</h2>
+    <p>The Social Club is a small newsletter built around the events already on this page: top picks and local finds, once a month.</p>
     <form name="footer-email-signup" method="POST" data-netlify="true" netlify-honeypot="bot-field" id="footerSignupForm">
       <input type="hidden" name="form-name" value="footer-email-signup">
       <p hidden><label>Don't fill this out if you're human: <input name="bot-field"></label></p>
       <input type="email" name="email" placeholder="you@email.com" aria-label="Email address" required>
-      <button type="submit">Join</button>
+      <button type="submit" class="btn">Join</button>
     </form>
     <p class="success">You're in, watch for the first newsletter.</p>
-  </section>
+  </div>
   </main>
 
   <footer>
@@ -261,34 +233,6 @@
 </div>
 
 <script>
-(function(){
-  var box = document.getElementById('contactBox');
-  var form = document.getElementById('contactForm');
-
-  function encode(data){
-    return Object.keys(data).map(function(k){
-      return encodeURIComponent(k) + '=' + encodeURIComponent(data[k]);
-    }).join('&');
-  }
-
-  form.addEventListener('submit', function(e){
-    e.preventDefault();
-    var formData = new FormData(form);
-    var payload = {};
-    formData.forEach(function(value, key){ payload[key] = value; });
-
-    fetch('/', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: encode(payload)
-    }).then(function(){
-      box.classList.add('is-submitted');
-    }).catch(function(){
-      box.classList.add('is-submitted');
-    });
-  });
-})();
-
 (function(){
   var box = document.getElementById('footerSignup');
   var form = document.getElementById('footerSignupForm');
