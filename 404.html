@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/png" href="favicon-32.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<title>Page Not Found | The Cincy Edit</title>
+<meta name="robots" content="noindex">
+<meta name="description" content="That page doesn't exist. Head back to The Cincy Edit's calendar.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#F8F7F4; --surface:#FFFFFF;
+    --ink:#14151A; --ink-soft:#5B5D66; --ink-faint:#8B8D96; --line:#E4E3DE;
+    --accent:#FB4F14;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#121212; --surface:#1B1B1B;
+      --ink:#F5F4F1; --ink-soft:#A8A6A0; --ink-faint:#77756F; --line:#2D2D2C;
+      --accent:#FF6B33;
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#121212; --surface:#1B1B1B;
+    --ink:#F5F4F1; --ink-soft:#A8A6A0; --ink-faint:#77756F; --line:#2D2D2C;
+    --accent:#FF6B33;
+  }
+  *{ box-sizing:border-box; }
+  body{
+    margin:0; background:var(--bg); color:var(--ink);
+    font-family:'Work Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    padding-inline:16px;
+  }
+  .wrap{ max-width:640px; margin:0 auto; padding-block:28px 56px; display:flex; flex-direction:column; gap:28px; }
+
+  header{ display:flex; flex-direction:column; gap:4px; padding-bottom:4px; }
+  .logo-lockup{ display:flex; flex-direction:column; align-items:flex-start; margin:6px auto 0; font-weight:400; width:max-content; max-width:100%; }
+  .logo-eyebrow{
+    display:flex; align-items:center; gap:9px; margin-bottom:8px;
+    font-family:'Work Sans',sans-serif; font-size:11px; font-weight:700; letter-spacing:0.4em; color:var(--ink);
+  }
+  .logo-bar{ width:22px; height:5px; background:var(--accent); flex:0 0 auto; }
+  .logo-cincy{
+    font-family:'Bebas Neue', sans-serif; font-weight:400; text-transform:uppercase;
+    font-size:clamp(46px,15vw,88px); line-height:0.82; letter-spacing:0.02em;
+  }
+  .logo-edit{
+    font-family:'Bebas Neue', sans-serif; font-weight:400; text-transform:uppercase;
+    font-size:clamp(46px,15vw,88px); line-height:0.82; letter-spacing:0.05em;
+    background:var(--ink); color:var(--bg);
+    padding:6px 14px 2px; margin-top:8px; align-self:stretch; text-align:center;
+  }
+  .logo-tagline{ margin:12px 0 0; font-size:11px; font-weight:600; letter-spacing:0.22em; text-transform:uppercase; color:var(--ink); text-align:center; }
+
+  main{ display:flex; flex-direction:column; align-items:center; text-align:center; gap:14px; padding-block:24px; }
+  .code{
+    font-family:'Bebas Neue',sans-serif; font-weight:400; letter-spacing:0.02em;
+    font-size:clamp(64px,22vw,120px); line-height:0.85; color:var(--accent); margin:0;
+  }
+  h1{
+    font-family:'Bebas Neue',sans-serif; font-weight:400; text-transform:uppercase;
+    letter-spacing:0.015em; font-size:clamp(24px,6vw,32px); line-height:0.95; margin:0;
+  }
+  p{ font-size:15px; line-height:1.65; color:var(--ink-soft); margin:0; max-width:48ch; }
+  .back{
+    display:inline-block; margin-top:6px; font-family:'Work Sans',sans-serif; font-size:13.5px;
+    font-weight:700; letter-spacing:0.05em; text-transform:uppercase; text-decoration:none;
+    padding:12px 22px; border-radius:9px; background:var(--ink); color:var(--bg);
+  }
+  .back:hover{ opacity:0.88; }
+
+  footer{ padding-top:8px; border-top:1px solid var(--line); text-align:center; }
+  footer p{ font-size:13px; margin:12px 0 0; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="logo-lockup">
+      <span class="logo-eyebrow"><span class="logo-bar" aria-hidden="true"></span>THE</span>
+      <span class="logo-cincy">CINCY</span>
+      <span class="logo-edit">EDIT</span>
+    </div>
+    <p class="logo-tagline">Go Somewhere. Do Something.</p>
+  </header>
+
+  <main>
+    <p class="code" aria-hidden="true">404</p>
+    <h1>This page took a different route</h1>
+    <p>Whatever you were looking for isn't here. It might have moved, or the link might be off, head back to the calendar to find what's happening in Cincinnati.</p>
+    <a class="back" href="/">Back to the calendar</a>
+  </main>
+
+  <footer>
+    <p>Events listed on The Cincy Edit are not affiliated with, run by, or endorsed by The Cincy Edit. This is simply a calendar. Check with the event or venue directly for the latest details.</p>
+  </footer>
+</div>
+</body>
+</html>
